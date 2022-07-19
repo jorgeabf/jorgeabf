@@ -1,60 +1,63 @@
 ---
 export interface Props {
-      title: string;
+    title: string;
 }
-
 const { title } = Astro.props as Props;
+
 ---
 
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width" />
-      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      <title>{title}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title}</title>
 </head>
 
 <body>
-      <slot />
+    <slot />
 </body>
 
 </html>
 <style>
-      :root {
-            --font-small: clamp(.85rem, 0.14vw + 0.80rem, 0.9rem);
-            --font-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-            --font-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-            --font-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    :root {
+        --font-small: clamp(.85rem, 0.14vw + 0.80rem, 0.9rem);
+        --font-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+        --font-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+        --font-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
 
-            --color-text: hsl(12, 5%, 4%);
-            --color-bg: hsl(10, 21%, 95%);
-            --color-border: hsl(17, 24%, 90%);
-      }
+        --color-text: hsl(8, 16%, 29%);
+        --color-bg: hsl(0, 0%, 97.5%);
+        --border-color: hsl(8, 18%, 89%);
+        --color-primary: #0051CD;
+        --color-primary-light: #0080FF;
+        --color-secondary: #F1433F;
+    }
 
-      html {
-            font-family: system-ui, sans-serif;
-            font-size: var(--font-base);
-            color: var(--color-text);
-            background-color: var(--color-bg);
-      }
+    *,
+    *::after,
+    *::before {
+        box-sizing: border-box;
+    }
 
-      body {
-            margin: 0;
-      }
+    html {
+        font-family: system-ui, sans-serif;
+        font-size: var(--font-base);
+        color: var(--color-text);
+        background-color: var(--color-bg);
+    }
 
-      :global(h1) {
-            font-size: var(--font-xl);
-      }
+    body {
+        margin: 0;
+    }
 
-      :global(h2) {
-            font-size: var(--font-lg);
-      }
+    :global(h1) {
+        font-size: var(--font-xl);
+    }
 
-      :global(code) {
-            font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-                  Bitstream Vera Sans Mono, Courier New, monospace;
-            font-size: var(--font-small);
-      }
+    :global(h2) {
+        font-size: var(--font-lg);
+    }
 </style>

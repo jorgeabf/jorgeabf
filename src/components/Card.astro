@@ -1,74 +1,60 @@
 ---
 export interface Props {
-      title: string;
-      body: string;
-      href: string;
+    title: string;
+    body: string;
+    href: string;
 }
 const { href, title, body } = Astro.props;
 ---
 
-<li class="link-card">
-      <a href={href}>
-            <h2>
-                  {title}
-                  <span>&rarr;</span>
-            </h2>
-            <p>
-                  {body}
-            </p>
-      </a>
-</li>
+<a href={href} class="link-card">
+    <h3 class="link-card__titulo">
+        {title}
+        <span class="link-card__span">&rarr;</span>
+    </h3>
+    <p class="link-card__parrafo">
+        {body}
+    </p>
+</a>
+
 <style>
-      :root {
-            --link-gradient: linear-gradient(45deg, #4f39fa, #da62c4 30%, var(--color-border) 60%);
-      }
+    .link-card {
+        padding: 1em 1.3em;
+        border: 2px solid var(--border-color);
+        border-radius: 0.5rem;
+        text-decoration: none;
+        background-color: hsl(0, 0%, 100%);
+        color: var(--text-color);
+        transition: background-color, border-color 0.3s ease-in-out;
+        display: block;
+    }
 
-      .link-card {
-            list-style: none;
-            display: flex;
-            padding: 0.15rem;
-            background-image: var(--link-gradient);
-            background-size: 400%;
-            border-radius: 0.5rem;
-            background-position: 100%;
-            transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-      }
+    .link-card__titulo {
+        max-width: 100%;
+        margin: 0;
+        transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-      .link-card>a {
-            width: 100%;
-            text-decoration: none;
-            line-height: 1.4;
-            padding: 1em 1.3em;
-            border-radius: 0.35rem;
-            color: var(--text-color);
-            background-color: white;
-            opacity: 0.8;
-      }
+    .link-card__parrafo {
+        margin-top: 0.75rem;
+        margin-bottom: 0;
+    }
 
-      h2 {
-            margin: 0;
-            transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-      }
+    .link-card__span {
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-      p {
-            margin-top: 0.75rem;
-            margin-bottom: 0;
-      }
+    .link-card:is(:hover, :focus-within) {
+        background-color: hsl(220, 50%, 97%);
+        border-color: var(--color-primary-light);
+    }
 
-      h2 span {
-            display: inline-block;
-            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-      }
+    .link-card:is(:hover, :focus-within) .link-card__titulo {
+        color: var(--color-primary);
+    }
 
-      .link-card:is(:hover, :focus-within) {
-            background-position: 0;
-      }
-
-      .link-card:is(:hover, :focus-within) h2 {
-            color: #4f39fa;
-      }
-
-      .link-card:is(:hover, :focus-within) h2 span {
-            transform: translateX(2px);
-      }
+    .link-card:is(:hover, :focus-within) .link-card__span {
+        transform: translateX(.2em);
+    }
 </style>

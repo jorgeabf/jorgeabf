@@ -1,0 +1,61 @@
+---
+const links = [
+    {
+        name: 'Home',
+        url: '/',
+        icon: 'home',
+    },
+    {
+        name: 'About',
+        url: '/about',
+        icon: 'info',
+    },
+    {
+        name: 'Contacto',
+        url: '/contacto',
+        icon: 'phone',
+    },
+    {
+        name: 'Posts',
+        url: '/posts',
+        icon: 'user-plus',
+    },
+];
+---
+
+<nav>
+    <ul class="nav">
+        {links.map(link => (
+        <li class="nav__item">
+            <a href={link.url} class="nav__link">
+                {link.name}
+            </a>
+        </li>
+        ))}
+    </ul>
+</nav>
+
+<style>
+    .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav__item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav__link {
+        text-transform: capitalize;
+        text-decoration: none;
+        color: var(--color-primary);
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+</style>
