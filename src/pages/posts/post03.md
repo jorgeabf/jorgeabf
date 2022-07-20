@@ -1,6 +1,6 @@
 ---
 title: "Mi Tercer post"
-layout: ../../layouts/LayoutPosts.astro
+layout: "../../layouts/LayoutPosts.astro"
 ---
 
 <h1>Hola <span>Mi Tercer Post</span></h1>
