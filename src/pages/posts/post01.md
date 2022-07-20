@@ -8,6 +8,5 @@ layout: ../../layouts/LayoutPosts.astro
 ## Probando Markdown
 
 - One-Line Markdown
-- Two-Line Markdown
 
 [&larr; Volver](/posts)
