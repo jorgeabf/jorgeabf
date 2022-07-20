@@ -1,0 +1,36 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+import Titulo from "../../components/Titulo.astro";
+import Menu from "../../components/Menu.astro";
+import Grid from "../../components/Grid.astro";
+import Card from "../../components/Card.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="Posts">
+    <Container>
+        <Menu />
+        <Titulo titulo="Índice de Posts" span="Jorge Arce" />
+        <main>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <Grid>
+                <Card title="Primer Post" href="/posts/post01"
+                    body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, itaque." />
+                <Card title="Segundo Post" href="/posts/post02"
+                    body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, itaque." />
+                <Card title="Tercer Post" href="/posts/post03"
+                    body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, itaque." />
+                <Card title="Cuarto Post" href="/posts/post04"
+                    body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, itaque." />
+                <Card title="Quinto Post" href="/posts/post05"
+                    body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, itaque." />
+                <Card title="Sexto Post" href="/posts/post06"
+                    body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, itaque." />
+                <Card title="Septimo Post" href="/posts/post07"
+                    body="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, itaque." />
+            </Grid>
+        </main>
+        <Footer />
+    </Container>
+</Layout>

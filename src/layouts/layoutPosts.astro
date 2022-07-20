@@ -54,16 +54,19 @@ const { title } = Astro.props as Props;
     }
 
     body {
+        --max-width: 1300px;
+        max-width: var(--max-width);
+        width: 100%;
+        min-height: 100vh;
         margin: 0;
+        padding: 2em 1em;
+        margin-inline: auto;
+        background-color: var(--color-bg);
         line-height: 1.5;
         font-family: system-ui, sans-serif;
         font-size: var(--fs-1);
         background-color: var(--color-bg);
         color: var(--color-text);
-    }
-
-    main {
-        grid-area: main;
     }
 
     a {
@@ -75,19 +78,5 @@ const { title } = Astro.props as Props;
 
     a:is(:hover, :active, :focus) {
         color: var(--color-secondary)
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-top: 0;
-    }
-
-    h2 {
-        font-size: var(--fs-3);
-        font-weight: 700;
     }
 </style>
