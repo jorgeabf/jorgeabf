@@ -1,6 +1,6 @@
 ---
 title: "Mi Sexto post"
-layout: "../../layouts/LayoutPosts.astro"
+layout: "../../layouts/Posts.astro"
 ---
 
 # Mi Sexto Post

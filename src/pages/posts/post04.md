@@ -1,6 +1,6 @@
 ---
 title: "Mi Cuarto post"
-layout: "../../layouts/LayoutPosts.astro"
+layout: "../../layouts/Posts.astro"
 ---
 
 # Mi Cuarto Post
