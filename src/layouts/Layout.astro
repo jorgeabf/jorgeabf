@@ -13,6 +13,10 @@ const { title } = Astro.props as Props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@700;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -89,5 +93,6 @@ const { title } = Astro.props as Props;
     h2 {
         font-size: var(--fs-3);
         font-weight: 700;
+        font-family: 'Encode Sans Semi Condensed', sans-serif;
     }
 </style>
