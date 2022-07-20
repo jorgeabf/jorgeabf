@@ -26,7 +26,7 @@ const { title } = Astro.props as Props;
         --font-small: clamp(.85rem, 0.14vw + 0.80rem, 0.9rem);
         --font-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
         --font-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-        --font-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+        --font-xl: clamp(2.2rem, 2.1vw + 1.65rem, 3.55rem);
 
         --color-text: hsl(8, 16%, 29%);
         --color-bg: hsl(0, 0%, 97.5%);
@@ -40,6 +40,11 @@ const { title } = Astro.props as Props;
     *::after,
     *::before {
         box-sizing: border-box;
+    }
+
+    html,
+    body {
+        min-height: 100vh;
     }
 
     html {
