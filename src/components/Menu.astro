@@ -1,24 +1,20 @@
 ---
 const links = [
     {
-        name: 'Home',
+        name: 'about',
         url: '/',
-        icon: 'home',
     },
     {
-        name: 'About',
-        url: '/about',
-        icon: 'info',
+        name: 'Portfolio',
+        url: '/portfolio',
     },
     {
         name: 'Contacto',
         url: '/contacto',
-        icon: 'phone',
     },
     {
         name: 'Posts',
         url: '/posts',
-        icon: 'user-plus',
     },
 ];
 ---
@@ -37,11 +33,15 @@ const links = [
 
 <style>
     .nav {
+        justify-self: flex-end;
+        grid-area: menu;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
         display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
     }
 
     .nav__item {
@@ -53,9 +53,11 @@ const links = [
 
     .nav__link {
         text-transform: capitalize;
-        text-decoration: none;
-        color: var(--color-primary);
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-weight: 500;
+        color: var(--color-text-light)
+    }
+
+    .nav__link:is(:hover, :active, :focus) {
+        color: var(--color-secondary)
     }
 </style>

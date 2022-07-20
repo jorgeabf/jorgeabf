@@ -4,11 +4,22 @@
 
 <style>
     .container {
-        width: 90%;
+        --max-width: 1300px;
+        width: 100%;
+        max-width: var(--max-width);
         min-height: 100vh;
-        max-width: 1200px;
+        padding: 2em 1em 0;
         margin-inline: auto;
-        display: flex;
-        flex-direction: column;
+        background-color: var(--color-bg);
+        display: grid;
+        align-items: center;
+
+        gap: 2em 1em;
+        grid-template-columns: 1fr 1fr min-content;
+        grid-template-rows: min-content 1fr min-content;
+        grid-template-areas:
+            "header header menu"
+            "main main main"
+            "footer footer footer";
     }
 </style>
