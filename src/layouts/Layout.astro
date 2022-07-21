@@ -13,6 +13,10 @@ const { title } = Astro.props as Props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@700;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -36,10 +40,12 @@ const { title } = Astro.props as Props;
         --color-text: hsl(8, 16%, 29%);
         --color-text-light: hsl(8, 16%, 40%);
         --color-bg: hsl(0, 0%, 97.5%);
-        --border-color: hsl(8, 18%, 89%);
         --color-primary: hsl(216, 100%, 40%);
         --color-primary-light: hsl(210, 100%, 50%);
         --color-secondary: hsl(1, 86%, 60%);
+
+        --border: 2px solid hsl(8, 18%, 89%);
+        --border-radius: .5em;
     }
 
     *,
@@ -84,10 +90,16 @@ const { title } = Astro.props as Props;
     h5,
     h6 {
         margin-top: 0;
+        font-family: 'Encode Sans Semi Condensed', sans-serif;
+        ;
     }
 
     h2 {
         font-size: var(--fs-3);
-        font-weight: 700;
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
     }
 </style>

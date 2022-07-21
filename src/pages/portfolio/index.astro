@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+import Titulo from "../../components/Titulo.astro";
+import Grid from "../../components/Grid.astro";
+import CardImage from "../../components/CardImage.astro";
+import egidazu from '../../images/portfolio/egidazu-web.png';
+import autoescuela from '../../images/portfolio/autoescuela.png';
+import master from '../../images/portfolio/master-inicio.png';
+import master2 from '../../images/portfolio/master-wpa.png';
+import egidazuBlog from '../../images/portfolio/egidazu-blog.png';
+import vlogEgidazu from '../../images/portfolio/vlog-egidazu.png';
+---
+
+<Layout title="Portfolio">
+    <Container>
+        <Titulo titulo="Portfolio" span="Jorge Arce Balluerca" />
+        <main>
+            <Grid>
+                <CardImage href="/portfolio/ajedrez-egidazu" imagen={egidazu} alt="Club Ajedrez Egidazu"
+                    proyecto="Club Ajedrez" fecha="Diciembre 2021" />
+                <CardImage href="/portfolio/vlog-ajedrez" imagen={vlogEgidazu} alt="Vlog Ajedrez Egidazu"
+                    proyecto="Vlog Ajedrez" fecha="Diciembre 2021" />
+                <CardImage href="/portfolio/autoescuela" imagen={autoescuela} alt="Autoescuela" proyecto="Autoescuela"
+                    fecha="Diciembre 2021" />
+                <CardImage href="/portfolio/master1" imagen={master} alt="Master Emergencias"
+                    proyecto="Master Emergencias" fecha="Diciembre 2021" />
+                <CardImage href="/portfolio/master2" imagen={master2} alt="Master Emergencias" proyecto="Master 2"
+                    fecha="Diciembre 2021" />
+                <CardImage href="/portfolio/blog-ajedrez" imagen={egidazuBlog} alt="Blog Ajedrez Egidazu"
+                    proyecto="Blog Ajedrez" fecha="Diciembre 2021" />
+            </Grid>
+        </main>
+    </Container>
+</Layout>
