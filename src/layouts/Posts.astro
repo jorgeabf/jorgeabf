@@ -96,6 +96,13 @@ const { title } = Astro.props as Props;
 
     h1 {
         font-weight: 900;
-        font-size: var(--fs-5);
+        line-height: 1.25;
+        font-size: var(--fs-3);
+    }
+
+    @media (hover:hover) {
+        h1 {
+            font-size: var(--fs-5);
+        }
     }
 </style>

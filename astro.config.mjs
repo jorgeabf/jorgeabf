@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
+import robotsTxt from "astro-robots-txt";
 
 export default defineConfig({
+  site: "https://jorgearce.vercel.app",
   outDir: "./dist",
   markdown: {
     drafts: true,
@@ -12,4 +14,8 @@ export default defineConfig({
       external: ["svgo"],
     },
   },
+  experimental: {
+    integrations: true,
+  },
+  integrations: [robotsTxt()],
 });
