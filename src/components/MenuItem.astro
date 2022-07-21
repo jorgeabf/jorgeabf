@@ -1,0 +1,44 @@
+---
+export interface Props {
+    href: string;
+    name: string;
+}
+const { href, name } = Astro.props;
+---
+
+<li class="nav__item">
+    <a href={href} class="nav__link">
+        <slot />
+        <span class="nav__span">{name}</span>
+    </a>
+</li>
+
+<style>
+    .nav__item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav__link {
+        text-transform: capitalize;
+        font-family: 'Encode Sans Semi Condensed', sans-serif;
+        font-weight: 700;
+        color: var(--color-text-light);
+        display: flex;
+        align-items: center;
+        gap: .5em;
+    }
+
+    .nav__link:is(:hover, :active, :focus) {
+        color: var(--color-secondary)
+    }
+
+    .nav__icon {
+        width: 1em;
+        height: 1em;
+        display: block;
+        max-width: 100%;
+    }
+</style>

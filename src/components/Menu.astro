@@ -1,40 +1,13 @@
----
-const links = [
-    {
-        name: 'about',
-        url: '/',
-    },
-    {
-        name: 'Portfolio',
-        url: '/portfolio',
-    },
-    {
-        name: 'Contacto',
-        url: '/contacto',
-    },
-    {
-        name: 'Posts',
-        url: '/posts',
-    },
-];
----
-
 <nav>
     <ul class="nav">
-        {links.map(link => (
-        <li class="nav__item">
-            <a href={link.url} class="nav__link">
-                {link.name}
-            </a>
-        </li>
-        ))}
+        <slot />
     </ul>
 </nav>
 
 <style>
     .nav {
-        justify-self: flex-end;
         grid-area: menu;
+        justify-self: flex-end;
         width: fit-content;
         padding: 0;
         margin: 0;
@@ -42,23 +15,5 @@ const links = [
         flex-direction: column;
         align-items: flex-start;
         gap: .5rem;
-    }
-
-    .nav__item {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .nav__link {
-        text-transform: capitalize;
-        font-family: 'Encode Sans Semi Condensed', sans-serif;
-        font-weight: 700;
-        color: var(--color-text-light)
-    }
-
-    .nav__link:is(:hover, :active, :focus) {
-        color: var(--color-secondary)
     }
 </style>
