@@ -10,16 +10,11 @@ const { title } = Astro.props as Props;
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sitio web y porfolio personal de Jorge Arce Balluerca">
     <meta name="color" content="#765a56">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@700;900&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
@@ -29,6 +24,25 @@ const { title } = Astro.props as Props;
 </html>
 
 <style is:global>
+    @font-face {
+        font-family: 'Encode-700';
+        font-style: normal;
+        font-display: swap;
+        src: url('../../fonts/EncodeSansSemiCondensed-Bold.ttf') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Encode-900';
+        font-style: normal;
+        font-display: swap;
+        src: url('../../fonts/EncodeSansSemiCondensed-Black.ttf') format('woff2');
+    }
+
+    /* https: //fonts.gstatic.com/s/encodesanssemicondensed/v10/3qT7oiKqnDuUtQUEHMoXcmspmy55SFWrXFRp9FTOG1Qt0dFOZ9XQTA.woff2
+ */
+
+    /* https: //fonts.gstatic.com/s/encodesanssemicondensed/v10/3qT7oiKqnDuUtQUEHMoXcmspmy55SFWrXFRp9FTOG1QV09FOZ9XQTA.woff2 */
+
     :root {
         --fs--2: clamp(0.64rem, calc(0.71rem + -0.10vw), 0.69rem);
         --fs--1: clamp(0.80rem, calc(0.85rem + -0.06vw), 0.83rem);
@@ -93,8 +107,7 @@ const { title } = Astro.props as Props;
     h5,
     h6 {
         margin-top: 0;
-        font-family: 'Encode Sans Semi Condensed', sans-serif;
-        ;
+        font-family: Encode-700, sans-serif;
     }
 
     h2 {
