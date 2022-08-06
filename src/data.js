@@ -4,6 +4,7 @@ import master from "./images/portfolio-400/master-inicio.webp";
 import master2 from "./images/portfolio-400/master-wpa.webp";
 import egidazuBlog from "./images/portfolio-400/egidazu-blog.webp";
 import vlogEgidazu from "./images/portfolio-400/vlog-egidazu.webp";
+import landingChess from "./images/portfolio-400/landing-chess.webp";
 
 export const proyectos = [
   {
@@ -21,7 +22,7 @@ export const proyectos = [
     fecha: "Mayo 2022",
   },
   {
-    href: "https://vlog.egidazu.es",
+    href: "https://vlog.ajedrezegidazu.es",
     imagen: vlogEgidazu,
     alt: "Vlog del Club Ajedrez Egidazu",
     proyecto: "Vlog de Ajedrez",
@@ -47,5 +48,12 @@ export const proyectos = [
     alt: "Sitio Web Master en Medicina de Emergencia",
     proyecto: "Sitio Web Master",
     fecha: "Marzo 2022",
+  },
+  {
+    href: "https://jorgeabf.github.io/landing-chess",
+    imagen: landingChess,
+    alt: "Diseño landing page Ajedrez",
+    proyecto: "Landing Ajedrez",
+    fecha: "Junio 2022",
   },
 ];
