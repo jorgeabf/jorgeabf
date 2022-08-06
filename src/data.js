@@ -1,9 +1,9 @@
-import egidazu from "./images/portfolio-400/egidazu-web.png";
-import autoescuela from "./images/portfolio-400/autoescuela.png";
-import master from "./images/portfolio-400/master-inicio.png";
-import master2 from "./images/portfolio-400/master-wpa.png";
-import egidazuBlog from "./images/portfolio-400/egidazu-blog.png";
-import vlogEgidazu from "./images/portfolio-400/vlog-egidazu.png";
+import egidazu from "./images/portfolio-400/egidazu-web.webp";
+import autoescuela from "./images/portfolio-400/autoescuela.webp";
+import master from "./images/portfolio-400/master-inicio.webp";
+import master2 from "./images/portfolio-400/master-wpa.webp";
+import egidazuBlog from "./images/portfolio-400/egidazu-blog.webp";
+import vlogEgidazu from "./images/portfolio-400/vlog-egidazu.webp";
 
 export const proyectos = [
   {
@@ -12,6 +12,20 @@ export const proyectos = [
     alt: "Sitio Web del Club Ajedrez Egidazu",
     proyecto: "Club de Ajedrez",
     fecha: "Diciembre 2021",
+  },
+  {
+    href: "https://blog.ajedrezegidazu.es",
+    imagen: egidazuBlog,
+    alt: "Blog del Club Ajedrez Egidazu",
+    proyecto: "Blog de Ajedrez",
+    fecha: "Mayo 2022",
+  },
+  {
+    href: "https://vlog.egidazu.es",
+    imagen: vlogEgidazu,
+    alt: "Vlog del Club Ajedrez Egidazu",
+    proyecto: "Vlog de Ajedrez",
+    fecha: "Enero 2022",
   },
   {
     href: "http://autoescuelasanprudencio.com/jorge",
@@ -33,19 +47,5 @@ export const proyectos = [
     alt: "Sitio Web Master en Medicina de Emergencia",
     proyecto: "Sitio Web Master",
     fecha: "Marzo 2022",
-  },
-  {
-    href: "https://blog.ajedrezegidazu.es",
-    imagen: egidazuBlog,
-    alt: "Blog del Club Ajedrez Egidazu",
-    proyecto: "Blog de Ajedrez",
-    fecha: "Mayo 2022",
-  },
-  {
-    href: "https://vlog.egidazu.es",
-    imagen: vlogEgidazu,
-    alt: "Vlog del Club Ajedrez Egidazu",
-    proyecto: "Vlog de Ajedrez",
-    fecha: "Enero 2022",
   },
 ];
