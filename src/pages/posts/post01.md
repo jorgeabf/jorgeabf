@@ -1,6 +1,6 @@
 ---
-title: "Mi primer post"
 layout: "../../layouts/Posts.astro"
+title: "Mi primer post"
 ---
 ## Mi primer post
 
