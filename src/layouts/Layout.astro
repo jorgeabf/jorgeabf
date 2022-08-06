@@ -1,6 +1,6 @@
 ---
 export interface Props {
-    title: string;
+   title: string;
 }
 const { title } = Astro.props as Props;
 ---
@@ -9,113 +9,103 @@ const { title } = Astro.props as Props;
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sitio web y porfolio personal de Jorge Arce Balluerca">
-    <meta name="color" content="#765a56">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{title}</title>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Sitio web y porfolio personal de Jorge Arce Balluerca">
+   <meta name="color" content="#765a56">
+   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+   <title>{title}</title>
 </head>
 
 <body>
-    <slot />
+   <slot />
 </body>
 
 </html>
 
 <style is:global>
-    @font-face {
-        font-family: 'Encode-700';
-        font-style: normal;
-        font-display: swap;
-        src: url('../../fonts/EncodeSansSemiCondensed-Bold.ttf') format('woff2');
-    }
+   @font-face {
+      font-family: 'Encode-700';
+      font-style: normal;
+      font-display: swap;
+      src: url('../../fonts/EncodeSansSemiCondensed-Bold.ttf') format('woff2');
+   }
 
-    @font-face {
-        font-family: 'Encode-900';
-        font-style: normal;
-        font-display: swap;
-        src: url('../../fonts/EncodeSansSemiCondensed-Black.ttf') format('woff2');
-    }
+   @font-face {
+      font-family: 'Encode-900';
+      font-style: normal;
+      font-display: swap;
+      src: url('../../fonts/EncodeSansSemiCondensed-Black.ttf') format('woff2');
+   }
 
-    /* https: //fonts.gstatic.com/s/encodesanssemicondensed/v10/3qT7oiKqnDuUtQUEHMoXcmspmy55SFWrXFRp9FTOG1Qt0dFOZ9XQTA.woff2
- */
-
-    /* https: //fonts.gstatic.com/s/encodesanssemicondensed/v10/3qT7oiKqnDuUtQUEHMoXcmspmy55SFWrXFRp9FTOG1QV09FOZ9XQTA.woff2 */
-
-    :root {
-        --fs--2: clamp(0.64rem, calc(0.71rem + -0.10vw), 0.69rem);
-        --fs--1: clamp(0.80rem, calc(0.85rem + -0.06vw), 0.83rem);
-        --fs-0: clamp(1.00rem, calc(1.00rem + 0.00vw), 1.00rem);
-        --fs-1: clamp(1.20rem, calc(1.18rem + 0.09vw), 1.25rem);
-        --fs-2: clamp(1.44rem, calc(1.40rem + 0.22vw), 1.56rem);
-        --fs-3: clamp(1.73rem, calc(1.65rem + 0.41vw), 1.95rem);
-        --fs-4: clamp(2.07rem, calc(1.94rem + 0.67vw), 2.44rem);
-        --fs-5: clamp(2.49rem, calc(2.28rem + 1.02vw), 3.05rem);
+   :root {
+      --fs--2: clamp(0.64rem, calc(0.71rem + -0.10vw), 0.69rem);
+      --fs--1: clamp(0.80rem, calc(0.85rem + -0.06vw), 0.83rem);
+      --fs-0: clamp(1.00rem, calc(1.00rem + 0.00vw), 1.00rem);
+      --fs-1: clamp(1.20rem, calc(1.18rem + 0.09vw), 1.25rem);
+      --fs-2: clamp(1.44rem, calc(1.40rem + 0.22vw), 1.56rem);
+      --fs-3: clamp(1.73rem, calc(1.65rem + 0.41vw), 1.95rem);
+      --fs-4: clamp(2.07rem, calc(1.94rem + 0.67vw), 2.44rem);
+      --fs-5: clamp(2.49rem, calc(2.28rem + 1.02vw), 3.05rem);
 
 
-        --color-text: hsl(8, 16%, 29%);
-        --color-text-light: hsl(8, 16%, 40%);
-        --color-bg: hsl(0, 0%, 97.5%);
-        --color-primary: hsl(216, 100%, 40%);
-        --color-primary-light: hsl(210, 100%, 50%);
-        --color-secondary: hsl(1, 86%, 60%);
+      --color-text: hsl(0, 0%, 30%);
+      --color-text-light: hsl(0, 0%, 40%);
+      --color-bg: hsl(0, 0%, 97.5%);
+      --color-primary: hsl(216, 70%, 40%);
+      --color-primary-light: hsl(216, 70%, 50%);
+      --color-secondary: hsl(1, 70%, 50%);
 
-        --border: 2px solid hsl(8, 18%, 89%);
-        --border-radius: .5em;
-    }
+      --border: 2px solid hsl(0, 0%, 92.5%);
+      --border-radius: .5em;
+   }
 
-    *,
-    *::after,
-    *::before {
-        box-sizing: border-box;
-    }
+   *,
+   *::after,
+   *::before {
+      box-sizing: border-box;
+   }
 
-    html,
-    body {
-        min-height: 100vh;
-    }
+   html,
+   body {
+      min-height: 100vh;
+   }
 
-    body {
-        margin: 0;
-        line-height: 1.5;
-        font-family: system-ui, sans-serif;
-        font-size: var(--fs-1);
-        background-color: var(--color-bg);
-        color: var(--color-text);
-    }
+   body {
+      margin: 0;
+      line-height: 1.5;
+      font-family: system-ui, sans-serif;
+      font-size: var(--fs-1);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+   }
 
-    main {
-        grid-area: main;
-    }
+   main {
+      grid-area: main;
+   }
 
-    a {
-        color: var(--color-primary);
-        outline: none;
-        text-decoration: none;
-        transition: color .2s ease-in-out;
-    }
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+      font-family: 'Encode-700', sans-serif;
+      margin-top: 0;
+   }
 
-    a:is(:hover, :active, :focus) {
-        color: var(--color-secondary)
-    }
+   a {
+      color: var(--color-primary);
+      outline: none;
+      text-decoration: none;
+      transition: color .2s ease-in-out;
+   }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-top: 0;
-        font-family: Encode-700, sans-serif;
-    }
+   a:is(:hover, :active, :focus) {
+      color: var(--color-secondary)
+   }
 
-    h2 {
-        font-size: var(--fs-3);
-    }
-
-    img {
-        max-width: 100%;
-        display: block;
-    }
+   img {
+      max-width: 100%;
+      display: block;
+   }
 </style>
