@@ -2,10 +2,9 @@
 title: "Mi Tercer post"
 layout: "../../layouts/Posts.astro"
 ---
+## Mi Tercer Post
 
-<h1>Hola <span>Mi Tercer Post</span></h1>
-
-## Probando Markdown
+### Probando Markdown
 
 - One-Line Markdown
 - Two-Line Markdown

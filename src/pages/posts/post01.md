@@ -2,10 +2,11 @@
 title: "Mi primer post"
 layout: "../../layouts/Posts.astro"
 ---
+## Mi primer post
 
-# Mi Primer Post
+### Probando Markdown
 
-## Probando Markdown
+#### Soy un h4
 
 - One-Line Markdown
 

@@ -1,7 +1,7 @@
 ---
 export interface Props {
-    titulo: string;
-    span: string;
+   titulo: string;
+   span: string;
 }
 const { titulo, span } = Astro.props;
 ---
@@ -9,48 +9,36 @@ const { titulo, span } = Astro.props;
 <h1><span class="text-gradient">{span}</span><br>{titulo}</h1>
 
 <style>
-    h1 {
-        --astro-gradient: linear-gradient(0deg, var(--color-primary), var(--color-secondary));
-        grid-area: header;
-        margin: 0;
-        width: 100%;
-        line-height: 1.25;
-        font-size: var(--fs-2);
-        text-align: left;
-        color: var(--color-text-light);
-    }
+   h1 {
+      --astro-gradient: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      grid-area: header;
+      margin: 0;
+      width: 100%;
+      line-height: 1.25;
+      letter-spacing: -.1rem;
+      font-family: encode-700, sans-serif;
+      font-size: var(--fs-2);
+      text-align: left;
+      color: var(--color-text-light);
+   }
 
-    .text-gradient {
-        font-size: var(--fs-4);
-        font-family: encode-900, sans-serif;
-        background-image: var(--astro-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 100% 200%;
-        background-position-y: 100%;
-        animation: pulse 4s ease-in-out infinite;
-    }
+   .text-gradient {
+      letter-spacing: -.05rem;
+      font-size: var(--fs-4);
+      font-family: encode-900, sans-serif;
+      background-image: var(--astro-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+   }
 
-    @media (hover:hover) {
-        h1 {
-            flex-direction: row;
-            font-size: var(--fs-3);
-        }
+   @media (hover:hover) {
+      h1 {
+         flex-direction: row;
+         font-size: var(--fs-3);
+      }
 
-        .text-gradient {
-            font-size: var(--fs-5);
-        }
-    }
-
-    @keyframes pulse {
-
-        0%,
-        100% {
-            background-position-y: 0%;
-        }
-
-        50% {
-            background-position-y: 80%;
-        }
-    }
+      .text-gradient {
+         font-size: var(--fs-5);
+      }
+   }
 </style>

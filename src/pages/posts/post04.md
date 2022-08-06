@@ -2,10 +2,9 @@
 title: "Mi Cuarto post"
 layout: "../../layouts/Posts.astro"
 ---
+## Mi Cuarto Post
 
-# Mi Cuarto Post
-
-## Probando Markdown
+### Probando Markdown
 
 - One-Line Markdown
 - Two-Line Markdown
