@@ -37,9 +37,10 @@ import BlogIcon from './svg/Blog.astro';
       margin-inline: auto;
       background-color: var(--color-bg);
       display: grid;
-      gap: 1em;
+      column-gap: 1em;
+      row-gap: 1em;
       grid-template-columns: 1fr 1fr min-content;
-      grid-template-rows: min-content 1fr min-content;
+      grid-template-rows: min-content 1fr max-content;
       grid-template-areas:
          "header header menu"
          "main main main"
