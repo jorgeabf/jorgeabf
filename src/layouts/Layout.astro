@@ -49,14 +49,30 @@ const { title } = Astro.props as Props;
       --fs-5: clamp(2.49rem, calc(2.28rem + 1.02vw), 3.05rem);
 
 
-      --color-text: hsl(0, 0%, 20%);
+
       --color-text-light: hsl(0, 0%, 30%);
-      --color-bg: hsl(0, 0%, 97.5%);
-      --color-primary: hsl(216, 70%, 40%);
-      --color-primary-light: hsl(216, 70%, 80%);
+      --color-primary-975: hsl(216, 70%, 97.5%);
+      --color-primary-950: hsl(216, 70%, 95%);
+      --color-primary-925: hsl(216, 70%, 92.5%);
+      --color-primary-900: hsl(216, 70%, 90%);
+      --color-primary-875: hsl(216, 70%, 87.5%);
+      --color-primary-850: hsl(216, 70%, 85.0%);
+      --color-primary-825: hsl(216, 70%, 82.5%);
+      --color-primary-800: hsl(216, 70%, 80%);
+      --color-primary-700: hsl(216, 70%, 70%);
+      --color-primary-600: hsl(216, 70%, 60%);
+      --color-primary-500: hsl(216, 70%, 50%);
+      --color-primary-400: hsl(216, 70%, 40%);
+      --color-primary-300: hsl(216, 70%, 30%);
+      --color-primary-200: hsl(216, 70%, 20%);
+      --color-primary-100: hsl(216, 70%, 10%);
+
+      --color-primary: hsl(216, 70%, 50%);
       --color-secondary: hsl(1, 70%, 50%);
 
-      --border: 2px solid hsl(0, 0%, 92.5%);
+      --color-text: var(--color-primary-100);
+
+      --border: 2px solid var(--color-primary-900);
       --border-radius: .5em;
    }
 
@@ -68,7 +84,7 @@ const { title } = Astro.props as Props;
 
    html,
    body {
-      height: 100%;
+      min-height: 100%;
    }
 
    body {
@@ -76,8 +92,8 @@ const { title } = Astro.props as Props;
       line-height: 1.5;
       font-family: system-ui, sans-serif;
       font-size: var(--fs-1);
-      background-color: var(--color-bg);
-      color: var(--color-text);
+      background-image: linear-gradient(0deg, #fff, var(--color-primary-925));
+      color: var(--color-text)
    }
 
    main {
