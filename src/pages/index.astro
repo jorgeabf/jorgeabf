@@ -3,13 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
 import Titulo from '../components/Titulo.astro';
 import TituloSeccion from '../components/TituloSeccion.astro';
+import Avatar from '../components/Avatar.astro';
 ---
 
 <Layout title="Jorge Arce Balluerca">
    <Container>
       <Titulo titulo="Frontend Developer" span="Jorge Arce Balluerca" />
       <main>
-         <img class="avatar" src="jorgeabf.svg" alt="Foto de portada" loading="lazy" width="150" height="150">
+         <Avatar />
          <TituloSeccion>Acerca de mi</TituloSeccion>
          <p>Lorem ipsum dolor sit <strong>amet consectetur</strong> adipisicing elit. Debitis quas dignissimos
             quibusdam nemo itaque
@@ -28,20 +29,3 @@ import TituloSeccion from '../components/TituloSeccion.astro';
       </main>
    </Container>
 </Layout>
-
-<style>
-   main {
-      width: 100%;
-      margin-inline: auto;
-   }
-
-   .avatar {
-      box-shadow: hsla(0, 0%, 0%, 0.15) .25em .25em 1em .25em;
-      border-radius: 50%;
-      display: block;
-      text-align: right;
-      margin-inline: auto;
-      margin-bottom: 1em;
-      opacity: 0.8;
-   }
-</style>
