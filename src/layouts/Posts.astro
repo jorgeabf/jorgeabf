@@ -7,131 +7,134 @@ const { title } = Astro.props as Props;
 
 <!DOCTYPE html>
 <html lang="es">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta
+         name="description"
+         content="Sitio web y porfolio personal de Jorge Arce Balluerca"
+      />
+      <meta name="color" content="#765a56" />
+      <link rel="icon" type="image/x-icon" href="/favicon.svg" />
+      <title>{title}</title>
+   </head>
 
-<head>
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="Sitio web y porfolio personal de Jorge Arce Balluerca">
-   <meta name="color" content="#765a56">
-   <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-   <title>{title}</title>
-</head>
+   <body>
+      <h1>{title}</h1>
+      <slot />
+      <style is:global>
+         @font-face {
+            font-family: "Encode-700";
+            font-style: normal;
+            font-display: swap;
+            src: url("../../fonts/EncodeSansSemiCondensed-Bold.ttf")
+               format("woff2");
+         }
 
-<body>
-   <slot />
-</body>
+         @font-face {
+            font-family: "Encode-900";
+            font-style: normal;
+            font-display: swap;
+            src: url("../../fonts/EncodeSansSemiCondensed-Black.ttf")
+               format("woff2");
+         }
 
+         :root {
+            --fs--2: clamp(0.64rem, calc(0.71rem + -0.1vw), 0.69rem);
+            --fs--1: clamp(0.8rem, calc(0.85rem + -0.06vw), 0.83rem);
+            --fs-0: clamp(1rem, calc(1rem + 0vw), 1rem);
+            --fs-1: clamp(1.2rem, calc(1.18rem + 0.09vw), 1.25rem);
+            --fs-2: clamp(1.44rem, calc(1.4rem + 0.22vw), 1.56rem);
+            --fs-3: clamp(1.73rem, calc(1.65rem + 0.41vw), 1.95rem);
+            --fs-4: clamp(2.07rem, calc(1.94rem + 0.67vw), 2.44rem);
+            --fs-5: clamp(2.49rem, calc(2.28rem + 1.02vw), 3.05rem);
+
+            --text-color: hsl(0, 0%, 30%);
+            --text-color-light: hsl(0, 0%, 40%);
+            --color-bg: hsl(0, 0%, 97.5%);
+            --primary: hsl(var(--primary-h), var(--primary-s), 40%);
+            --primary-800: hsl(var(--primary-h), var(--primary-s), 50%);
+            --secondary: hsl(1, 70%, 50%);
+
+            --border: 2px solid hsl(0, 0%, 92.5%);
+            --border-radius: 0.5em;
+         }
+
+         *,
+         *::after,
+         *::before {
+            box-sizing: border-box;
+         }
+
+         html,
+         body {
+            min-height: 100vh;
+         }
+
+         body {
+            --max-width: 1300px;
+            max-width: var(--max-width);
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 2em 1em;
+            margin-inline: auto;
+            background-color: var(--color-bg);
+            line-height: 1.5;
+            font-family: system-ui, sans-serif;
+            font-size: var(--fs-1);
+            background-color: var(--color-bg);
+            color: var(--text-color);
+         }
+
+         a {
+            color: var(--primary);
+            outline: none;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+         }
+
+         a:is(:hover, :active, :focus) {
+            color: var(--secondary);
+         }
+
+         h1,
+         h2,
+         h3,
+         h4,
+         h5,
+         h6 {
+            margin-top: 0;
+            font-family: Encode-700, sans-serif;
+         }
+
+         h2 {
+            font-family: Encode-900;
+            line-height: 1.25;
+            font-size: var(--fs-3);
+         }
+
+         h3 {
+            font-size: var(--fs-2);
+         }
+
+         h4 {
+            font-size: var(--fs-1);
+         }
+
+         @media (hover: hover) {
+            h2 {
+               font-size: var(--fs-5);
+            }
+
+            h3 {
+               font-size: var(--fs-4);
+            }
+
+            h4 {
+               font-size: var(--fs-3);
+            }
+         }
+      </style>
+   </body>
 </html>
-
-<style is:global>
-   @font-face {
-      font-family: 'Encode-700';
-      font-style: normal;
-      font-display: swap;
-      src: url('../../fonts/EncodeSansSemiCondensed-Bold.ttf') format('woff2');
-   }
-
-   @font-face {
-      font-family: 'Encode-900';
-      font-style: normal;
-      font-display: swap;
-      src: url('../../fonts/EncodeSansSemiCondensed-Black.ttf') format('woff2');
-   }
-
-   :root {
-      --fs--2: clamp(0.64rem, calc(0.71rem + -0.10vw), 0.69rem);
-      --fs--1: clamp(0.80rem, calc(0.85rem + -0.06vw), 0.83rem);
-      --fs-0: clamp(1.00rem, calc(1.00rem + 0.00vw), 1.00rem);
-      --fs-1: clamp(1.20rem, calc(1.18rem + 0.09vw), 1.25rem);
-      --fs-2: clamp(1.44rem, calc(1.40rem + 0.22vw), 1.56rem);
-      --fs-3: clamp(1.73rem, calc(1.65rem + 0.41vw), 1.95rem);
-      --fs-4: clamp(2.07rem, calc(1.94rem + 0.67vw), 2.44rem);
-      --fs-5: clamp(2.49rem, calc(2.28rem + 1.02vw), 3.05rem);
-
-      --color-text: hsl(0, 0%, 30%);
-      --color-text-light: hsl(0, 0%, 40%);
-      --color-bg: hsl(0, 0%, 97.5%);
-      --color-primary: hsl(216, 70%, 40%);
-      --color-primary-800: hsl(216, 70%, 50%);
-      --color-secondary: hsl(1, 70%, 50%);
-
-      --border: 2px solid hsl(0, 0%, 92.5%);
-      --border-radius: .5em;
-   }
-
-   *,
-   *::after,
-   *::before {
-      box-sizing: border-box;
-   }
-
-   html,
-   body {
-      min-height: 100vh;
-   }
-
-   body {
-      --max-width: 1300px;
-      max-width: var(--max-width);
-      width: 100%;
-      min-height: 100vh;
-      margin: 0;
-      padding: 2em 1em;
-      margin-inline: auto;
-      background-color: var(--color-bg);
-      line-height: 1.5;
-      font-family: system-ui, sans-serif;
-      font-size: var(--fs-1);
-      background-color: var(--color-bg);
-      color: var(--color-text);
-   }
-
-   a {
-      color: var(--color-primary);
-      outline: none;
-      text-decoration: none;
-      transition: color .2s ease-in-out;
-   }
-
-   a:is(:hover, :active, :focus) {
-      color: var(--color-secondary)
-   }
-
-   h1,
-   h2,
-   h3,
-   h4,
-   h5,
-   h6 {
-      margin-top: 0;
-      font-family: Encode-700, sans-serif;
-   }
-
-   h2 {
-      font-family: Encode-900;
-      line-height: 1.25;
-      font-size: var(--fs-3);
-   }
-
-   h3 {
-      font-size: var(--fs-2);
-   }
-
-   h4 {
-      font-size: var(--fs-1);
-   }
-
-   @media (hover:hover) {
-      h2 {
-         font-size: var(--fs-5);
-      }
-
-      h3 {
-         font-size: var(--fs-4);
-      }
-
-      h4 {
-         font-size: var(--fs-3);
-      }
-   }
-</style>

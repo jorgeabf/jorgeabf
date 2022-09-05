@@ -1,0 +1,43 @@
+---
+import ReactIcon from './svg/ReactIcon.astro';
+import CssIcon from './svg/CssIcon.astro';
+---
+
+<aside>
+   <ul>
+      <li>
+         <a href="/" title="Icono de React">
+            <ReactIcon />
+         </a>
+      </li>
+      <li>
+         <a href="/" title="Icono de Css3">
+            <CssIcon />
+         </a>
+      </li>
+      <li>
+         <a href="/" title="Icono de React">
+            <ReactIcon />
+         </a>
+      </li>
+   </ul>
+</aside>
+<style>
+   ul {
+      width: fit-content;
+      margin-inline: auto;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+   }
+
+   li {
+      text-decoration: none;
+   }
+
+   a {
+      display: block;
+   }
+</style>

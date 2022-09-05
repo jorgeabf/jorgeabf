@@ -29,7 +29,7 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props;
       overflow: hidden;
       border: var(--border);
       border-radius: var(--border-radius);
-      color: var(--color-texto);
+      color: var(--text-coloro);
    }
 
    .card__img-box {
@@ -67,7 +67,7 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props;
    }
 
    .card:is(:hover, :focus-within) .card__titulo {
-      color: var(--color-primary);
+      color: var(--primary);
    }
 
    .card:is(:hover, :focus-within) .card__span {
