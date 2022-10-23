@@ -1,42 +1,36 @@
 ---
-import ReactIcon from './svg/ReactIcon.astro';
-import CssIcon from './svg/CssIcon.astro';
+import GithubIcon from "./svg/GithubIcon.astro";
+import LinkedinIcon from "./svg/LinkedinIcon.astro";
+import EmailIcon from "./svg/EmailIcon.astro";
+
+export interface Props {
+   className?: string;
+}
+const { className = "" } = Astro.props;
 ---
 
-<aside>
-   <ul>
-      <li>
-         <a href="/" title="Icono de React">
-            <ReactIcon />
-         </a>
-      </li>
-      <li>
-         <a href="/" title="Icono de Css3">
-            <CssIcon />
-         </a>
-      </li>
-      <li>
-         <a href="/" title="Icono de React">
-            <ReactIcon />
-         </a>
-      </li>
-   </ul>
+<aside class={className}>
+   <a
+      href="mailto:aportuvas@outlook.es"
+      title="Icono de Email">
+      <EmailIcon />
+   </a>
+   <a
+      href="https://github.com/jorgeabf"
+      title="Icono de Github">
+      <GithubIcon />
+   </a>
+   <a
+      href="https://linkedin.com/in/jorge-arce-balluerca"
+      title="Icono de Linkedin">
+      <LinkedinIcon />
+   </a>
 </aside>
 <style>
-   ul {
-      width: fit-content;
-      margin-inline: auto;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 1em;
+   aside {
+      display: grid;
+      gap: 0.25em;
    }
-
-   li {
-      text-decoration: none;
-   }
-
    a {
       display: block;
    }

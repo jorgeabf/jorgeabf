@@ -1,26 +1,28 @@
 ---
-import Menu from './Menu.astro';
-import Footer from './Footer.astro';
-import MenuItem from './MenuItem.astro';
-import AboutIcon from './svg/About.astro';
-import ContactIcon from './svg/Contact.astro';
-import PortfolioIcon from './svg/Portfolio.astro';
-import BlogIcon from './svg/Blog.astro';
+import Menu from "./Menu.astro";
+import Footer from "./Footer.astro";
+import MenuItem from "./MenuItem.astro";
+import AboutIcon from "./svg/About.astro";
+import PortfolioIcon from "./svg/Portfolio.astro";
+import BlogIcon from "./svg/Blog.astro";
 ---
 
 <div class="container">
    <Menu>
-      <MenuItem name="about" href="/">
-      <AboutIcon />
+      <MenuItem
+         name="about"
+         href="/">
+         <AboutIcon />
       </MenuItem>
-      <MenuItem name="portfolio" href="/portfolio">
-      <PortfolioIcon />
+      <MenuItem
+         name="portfolio"
+         href="/portfolio">
+         <PortfolioIcon />
       </MenuItem>
-      <MenuItem name="blog" href="/posts">
-      <BlogIcon />
-      </MenuItem>
-      <MenuItem name="contacto" href="/contacto">
-      <ContactIcon />
+      <MenuItem
+         name="blog"
+         href="/posts">
+         <BlogIcon />
       </MenuItem>
    </Menu>
    <slot />
