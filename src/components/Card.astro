@@ -7,7 +7,9 @@ export interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<a href={href} class="link-card">
+<a
+   href={href}
+   class="link-card">
    <h3 class="link-card__titulo">
       {title}
       <span class="link-card__span">&rarr;</span>
@@ -19,13 +21,14 @@ const { href, title, body } = Astro.props;
 
 <style>
    .link-card {
-      padding: 1em 1.3em;
+      padding: 1em;
       border: var(--border);
       border-radius: var(--border-radius);
       text-decoration: none;
       background-color: hsl(0, 0%, 100%);
       color: var(--text-color);
-      transition: background-color, border-color 0.3s ease-in-out;
+      transition: background-color,
+         border-color 0.3s ease-in-out;
       display: block;
    }
 
@@ -37,16 +40,18 @@ const { href, title, body } = Astro.props;
    .link-card__parrafo {
       margin-top: 0.75rem;
       margin-bottom: 0;
+      color: var(--text-color);
    }
 
    .link-card__span {
       display: inline-block;
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.3s
+         cubic-bezier(0.22, 1, 0.36, 1);
    }
 
    .link-card:is(:hover, :focus-within) {
-      background-color: hsl(220, 50%, 97%);
-      border-color: var(--primary-500);
+      background-color: hsl(10, 50%, 98.5%);
+      border-color: var(--secondary-500);
    }
 
    .link-card:is(:hover, :focus-within) .link-card__titulo {
@@ -54,6 +59,6 @@ const { href, title, body } = Astro.props;
    }
 
    .link-card:is(:hover, :focus-within) .link-card__span {
-      transform: translateX(.2em);
+      transform: translateX(0.2em);
    }
 </style>
