@@ -6,7 +6,7 @@
 
 - 🌱 Actualmente estoy ampliando mis conocimientos en **React y Next js**
 
-- 👯 También he diseñado y programado la Web del [Club de Ajedrez Egidazu](https://www.ajedrezeguidazu.com)
+- 👯 También he diseñado y programado la Web del [Club de Ajedrez Eguidazu](https://www.ajedrezeguidazu.com)
 
 <!---- 👨‍💻 Todos mis proyectos están disponibles en [jorgearce.dev](https://jorgearce.dev)
 --->
