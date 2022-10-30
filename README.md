@@ -2,16 +2,16 @@
 <h2>Soy Frontend Developer y resido en Vitoria</h3>
 <div style="background-color:#; padding:1em;border-radius:5px">
 
-- 🔭 Trabajo como Webmaster en [Master en Medicina de Emergencia](https://masteremergencias.com)
+- 🔭 Trabajo como Webmaster en [Master en Medicina de Emergencia](https://www.masteremergencias.com)
 
 - 🌱 Actualmente estoy ampliando mis conocimientos en **React y Next js**
 
-- 👯 También he diseñado y programado la Web del [Club de Ajedrez Egidazu](https://ajedrezegidazu.es)
+- 👯 También he diseñado y programado la Web del [Club de Ajedrez Egidazu](https://www.ajedrezeguidazu.com)
 
 <!---- 👨‍💻 Todos mis proyectos están disponibles en [jorgearce.dev](https://jorgearce.dev)
 --->
 
-- 📝Regularmente escribo artículos sobre ajedrez en [blog.ajedrezegidazu.es](https://blog.ajedrezegidazu.es)
+- 📝Regularmente escribo artículos sobre ajedrez en [blog.ajedrezeguidazu.com](https://www.ajedrezeguidazu.com/blog)
 
 - 📫 Email de contacto **jorgeabf1@outlook.es**
 </div>
