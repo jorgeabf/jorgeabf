@@ -5,9 +5,10 @@ Soy Frontend Developer y resido en Vitoria
 <div style="background-color:#; padding:1em;border-radius:5px">
 
 ### 🔭 Desempeño las funciones de Webmaster, programación y mantenimiento en los sitios web:
-      - [Master en Medicina de Emergencia](https://www.masteremergencias.com)
-      - [Autoescuela San Prudencio S.L.](https://www.autoescuelasanprudencio.com)
-      - [Club de Ajedrez Eguidazu](https://www.ajedrezeguidazu.com)
+      
+- [Master en Medicina de Emergencia](https://www.masteremergencias.com)
+- [Autoescuela San Prudencio S.L.](https://www.autoescuelasanprudencio.com)
+- [Club de Ajedrez Eguidazu](https://www.ajedrezeguidazu.com)
       
 🌱 Actualmente estoy ampliando mis conocimientos en *React* y *Next js*
 
