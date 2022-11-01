@@ -19,7 +19,7 @@ Soy Frontend Developer y resido en Vitoria
 
 - <a href="https://linkedin.com/in/jorge-arce-balluerca" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="jorge-arce-balluerca" height="30" width="40" /></a>
 
-### Lenguages y otros conocimientos:
+### Lenguages de programación y otras tecnologías:
 
 <div style="display:flex;flex-wrap:wrap; gap:1em;background-color:#ccc; padding:1em;border-radius:5px"> 
       <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> 
