@@ -21,7 +21,7 @@ Soy Frontend Developer y resido en Vitoria
 
 ### Lenguages de programación y otras tecnologías:
 
-<div style="display:flex;flex-wrap:wrap; gap:1em;background-color:#ccc; padding:1em;border-radius:5px"> 
+<div style="display:flex;flex-wrap:wrap; gap:1em;"> 
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/>
