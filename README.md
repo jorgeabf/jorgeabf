@@ -2,8 +2,6 @@
 
 Soy Frontend Developer y resido en Vitoria
 
-<div style="background-color:#; padding:1em;border-radius:5px">
-
 ### 🔭 Desempeño las funciones de Webmaster, programación y mantenimiento en los sitios web:
       
 - [Master en Medicina de Emergencia](https://www.masteremergencias.com)
@@ -12,18 +10,16 @@ Soy Frontend Developer y resido en Vitoria
       
 🌱 Actualmente estoy ampliando mis conocimientos en *React* y *Next js*
 
-👨‍💻 Todos mis proyectos están disponibles en [jorgearce.dev](https://www.jorgearce.dev)
+👨‍💻 Puedes visitar mi Portfolio, aunque aún lo estoy actualizando, allí están disponibles otros de mis trabajo: [jorgearce.dev](https://www.jorgearce.dev)
 
 📝 Regularmente escribo artículos sobre *ajedrez* en: [Blog de Ajedrez Eguidazu](https://www.ajedrezeguidazu.com/blog)
-</div>
-<br>
+
 
 ### 📫 Información de contacto:
 
 - <a href="https://linkedin.com/in/jorge-arce-balluerca" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="jorge-arce-balluerca" height="30" width="40" /></a>
-<br>
 
-### Lenguages y otros conocimientos
+### Lenguages y otros conocimientos:
 
 <div style="display:flex;flex-wrap:wrap; gap:1em;background-color:#ccc; padding:1em;border-radius:5px"> 
       <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>
