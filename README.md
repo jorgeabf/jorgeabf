@@ -22,7 +22,6 @@ Soy Frontend Developer y resido en Vitoria
 ### Lenguages y otros conocimientos:
 
 <div style="display:flex;flex-wrap:wrap; gap:1em;background-color:#ccc; padding:1em;border-radius:5px"> 
-      
       <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> 
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
       </a>
