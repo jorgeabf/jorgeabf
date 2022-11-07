@@ -1,37 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
-import Titulo from '../components/Titulo.astro';
-import TituloSeccion from '../components/TituloSeccion.astro';
-import Avatar from '../components/Avatar.astro';
+import Titulo from "../components/Titulo.astro";
+import TituloSeccion from "../components/TituloSeccion.astro";
+import Avatar from "../components/Avatar.astro";
 ---
 
 <Layout title="Jorge Arce Balluerca">
    <Container>
-      <Titulo titulo="Frontend Developer" span="Jorge Arce Balluerca" />
+      <Titulo
+         titulo="Frontend Developer"
+         span="Jorge Arce Balluerca"
+      />
       <main>
          <Avatar />
-         <TituloSeccion>Acerca de mi</TituloSeccion>
+         <TituloSeccion>Sobre mi</TituloSeccion>
          <section>
-            <p>Lorem ipsum dolor sit <strong>amet consectetur</strong> adipisicing elit. Debitis quas dignissimos
-               quibusdam nemo itaque.
+            <p>
+               Autodidacta y gran apasionado del <strong
+                  >Desarrollo Web</strong
+               >, he creado sitios Web desde cero y mis
+               puntos fuertes son la <strong
+                  >Maquetación</strong
+               > adaptada a todo tipo de dispositivos, el <strong
+                  >Desarrollo Frontend</strong
+               > y Optimización <strong>SEO</strong>.
             </p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, officia? Quaerat explicabo eveniet quis
-               sed quod molestiae ullam ab magni incidunt voluptates! Libero expedita earum distinctio tempora ab harum
-               optio vel modi tenetur atque eum ipsa
-            </p>
-            <p>Magnam laborum quos rerum. Incidunt, fugit, corrupti quibusdam in praesentium animi
-               perferendis fugiat aut culpa porro ex quis? Eius impedit deserunt velit mollitia, dolore necessitatibus
-               modi nemo aliquid cupiditate?</p>
          </section>
       </main>
    </Container>
 </Layout>
 
 <style>
-   @media (hover) {
-      section {
-         columns: 3;
-      }
+   p {
+      max-width: 60ch;
    }
 </style>
