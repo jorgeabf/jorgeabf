@@ -4,7 +4,6 @@ import Footer from "./Footer.astro";
 import MenuItem from "./MenuItem.astro";
 import AboutIcon from "./svg/About.astro";
 import PortfolioIcon from "./svg/Portfolio.astro";
-import BlogIcon from "./svg/Blog.astro";
 ---
 
 <div class="container">
@@ -19,11 +18,6 @@ import BlogIcon from "./svg/Blog.astro";
          href="/portfolio">
          <PortfolioIcon />
       </MenuItem>
-      <MenuItem
-         name="blog"
-         href="/posts">
-         <BlogIcon />
-      </MenuItem>
    </Menu>
    <slot />
    <Footer />
@@ -32,7 +26,7 @@ import BlogIcon from "./svg/Blog.astro";
 <style>
    .container {
       width: 100%;
-      --max-width: 1300px;
+      --max-width: 1000px;
       max-width: var(--max-width);
       min-height: 100vh;
       padding: 2em 1em 0;
