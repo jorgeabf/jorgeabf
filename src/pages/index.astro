@@ -1,38 +1,37 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Container from "../components/Container.astro";
-import Titulo from "../components/Titulo.astro";
-import TituloSeccion from "../components/TituloSeccion.astro";
-import Avatar from "../components/Avatar.astro";
+import Layout from '../layouts/Layout.astro'
+import Container from '../components/Container.astro'
+import Titulo from '../components/Titulo.astro'
+import TituloSeccion from '../components/TituloSeccion.astro'
+import Avatar from '../components/Avatar.astro'
 ---
 
-<Layout title="Jorge Arce Balluerca">
-   <Container>
-      <Titulo
-         titulo="Frontend Developer"
-         span="Jorge Arce Balluerca"
-      />
-      <main>
-         <Avatar />
-         <TituloSeccion>Sobre mi</TituloSeccion>
-         <section>
-            <p>
-               Autodidacta y gran apasionado del <strong
-                  >Desarrollo Web</strong
-               >, he creado sitios Web desde cero y mis
-               puntos fuertes son la <strong
-                  >Maquetación</strong
-               > adaptada a todo tipo de dispositivos, el <strong
-                  >Desarrollo Frontend</strong
-               > y Optimización <strong>SEO</strong>.
-            </p>
-         </section>
-      </main>
-   </Container>
+<Layout title='Jorge Arce Balluerca'>
+  <Container>
+    <Titulo
+      titulo='Frontend Developer'
+      span='Jorge Arce Balluerca'
+    />
+    <main>
+      <Avatar />
+      <TituloSeccion>Sobre mi</TituloSeccion>
+      <section>
+        <p>
+          Autodidacta y gran apasionado del <strong
+            >Desarrollo Web</strong
+          >, he creado sitios Web desde cero y mis puntos
+          fuertes son la <strong>Maquetación</strong> adaptada
+          a todo tipo de dispositivos, el <strong
+            >Desarrollo Frontend</strong
+          > y Optimización <strong>SEO</strong>.
+        </p>
+      </section>
+    </main>
+  </Container>
 </Layout>
 
 <style>
-   p {
-      max-width: 60ch;
-   }
+  p {
+    max-width: 60ch;
+  }
 </style>
