@@ -13,6 +13,7 @@
     "astro-robots-txt": "1.0.0"
   },
   "dependencies": {
+    "@astrojs/prefetch": "^0.4.1",
     "astro-icon": "0.8.1"
   }
 }
