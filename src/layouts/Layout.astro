@@ -1,11 +1,12 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
 export interface Props {
   title: string
 }
 const { title } = Astro.props as Props
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='es'>
   <head>
     <meta charset='UTF-8' />
@@ -26,6 +27,7 @@ const { title } = Astro.props as Props
       type='image/x-icon'
       href='/favicon.svg'
     />
+    <ViewTransitions />
     <title>{title}</title>
   </head>
   <body>
@@ -35,152 +37,50 @@ const { title } = Astro.props as Props
         font-family: 'Encode-700';
         font-style: normal;
         font-display: swap;
-        src: url('/fonts/EncodeSansSemiCondensed-Bold.ttf')
-          format('woff2');
+        src: url('/fonts/EncodeSansSemiCondensed-Bold.ttf') format('woff2');
       }
 
       @font-face {
         font-family: 'Encode-900';
         font-style: normal;
         font-display: swap;
-        src: url('/fonts/EncodeSansSemiCondensed-Black.ttf')
-          format('woff2');
+        src: url('/fonts/EncodeSansSemiCondensed-Black.ttf') format('woff2');
       }
 
       :root {
-        --fs--2: clamp(
-          0.64rem,
-          calc(0.71rem + -0.1vw),
-          0.69rem
-        );
-        --fs--1: clamp(
-          0.8rem,
-          calc(0.85rem + -0.06vw),
-          0.83rem
-        );
+        --fs--2: clamp(0.64rem, calc(0.71rem + -0.1vw), 0.69rem);
+        --fs--1: clamp(0.8rem, calc(0.85rem + -0.06vw), 0.83rem);
         --fs-0: clamp(1rem, calc(1rem + 0vw), 1rem);
-        --fs-1: clamp(
-          1.2rem,
-          calc(1.18rem + 0.09vw),
-          1.25rem
-        );
-        --fs-2: clamp(
-          1.44rem,
-          calc(1.4rem + 0.22vw),
-          1.56rem
-        );
-        --fs-3: clamp(
-          1.73rem,
-          calc(1.65rem + 0.41vw),
-          1.95rem
-        );
-        --fs-4: clamp(
-          2.07rem,
-          calc(1.94rem + 0.67vw),
-          2.44rem
-        );
-        --fs-5: clamp(
-          2.49rem,
-          calc(2.28rem + 1.02vw),
-          3.05rem
-        );
+        --fs-1: clamp(1.2rem, calc(1.18rem + 0.09vw), 1.25rem);
+        --fs-2: clamp(1.44rem, calc(1.4rem + 0.22vw), 1.56rem);
+        --fs-3: clamp(1.73rem, calc(1.65rem + 0.41vw), 1.95rem);
+        --fs-4: clamp(2.07rem, calc(1.94rem + 0.67vw), 2.44rem);
+        --fs-5: clamp(2.49rem, calc(2.28rem + 1.02vw), 3.05rem);
 
         --primary-h: 220;
         --primary-s: 50%;
         --secondary-h: 10;
         --secondary-s: 70%;
 
-        --primary-975: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          97.5%
-        );
-        --primary-950: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          95%
-        );
-        --primary-925: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          92.5%
-        );
-        --primary-900: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          90%
-        );
-        --primary-875: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          87.5%
-        );
-        --primary-850: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          85%
-        );
-        --primary-825: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          82.5%
-        );
-        --primary-800: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          80%
-        );
-        --primary-700: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          70%
-        );
-        --primary-600: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          60%
-        );
-        --primary-500: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          50%
-        );
-        --primary-400: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          40%
-        );
-        --primary-300: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          30%
-        );
-        --primary-200: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          20%
-        );
-        --primary-100: hsl(
-          var(--primary-h),
-          var(--primary-s),
-          10%
-        );
+        --primary-975: hsl(var(--primary-h), var(--primary-s), 97.5%);
+        --primary-950: hsl(var(--primary-h), var(--primary-s), 95%);
+        --primary-925: hsl(var(--primary-h), var(--primary-s), 92.5%);
+        --primary-900: hsl(var(--primary-h), var(--primary-s), 90%);
+        --primary-875: hsl(var(--primary-h), var(--primary-s), 87.5%);
+        --primary-850: hsl(var(--primary-h), var(--primary-s), 85%);
+        --primary-825: hsl(var(--primary-h), var(--primary-s), 82.5%);
+        --primary-800: hsl(var(--primary-h), var(--primary-s), 80%);
+        --primary-700: hsl(var(--primary-h), var(--primary-s), 70%);
+        --primary-600: hsl(var(--primary-h), var(--primary-s), 60%);
+        --primary-500: hsl(var(--primary-h), var(--primary-s), 50%);
+        --primary-400: hsl(var(--primary-h), var(--primary-s), 40%);
+        --primary-300: hsl(var(--primary-h), var(--primary-s), 30%);
+        --primary-200: hsl(var(--primary-h), var(--primary-s), 20%);
+        --primary-100: hsl(var(--primary-h), var(--primary-s), 10%);
 
-        --secondary: hsl(
-          var(--secondary-h),
-          var(--secondary-s),
-          50%
-        );
-        --secondary-dark: hsl(
-          var(--secondary-h),
-          var(--secondary-s),
-          40%
-        );
-        --secondary-light: hsl(
-          var(--secondary-h),
-          var(--secondary-s),
-          60%
-        );
+        --secondary: hsl(var(--secondary-h), var(--secondary-s), 50%);
+        --secondary-dark: hsl(var(--secondary-h), var(--secondary-s), 40%);
+        --secondary-light: hsl(var(--secondary-h), var(--secondary-s), 60%);
 
         --text-color: var(--primary-100);
         --text-color-light: var(--primary-300);
@@ -203,16 +103,20 @@ const { title } = Astro.props as Props
       body {
         margin: 0;
         line-height: 1.5;
-        font-family: system-ui, -apple-system,
-          BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-          Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          'Open Sans',
+          'Helvetica Neue',
           sans-serif;
         font-size: var(--fs-1);
-        background-image: linear-gradient(
-          0deg,
-          #fff,
-          var(--primary-925)
-        );
+        background-image: linear-gradient(0deg, #fff, var(--primary-925));
         color: var(--text-color);
       }
 
@@ -274,7 +178,9 @@ const { title } = Astro.props as Props
             currentColor 75%,
             currentColor
           );
-        background-position: 0 0, 10px 10px;
+        background-position:
+          0 0,
+          10px 10px;
         background-size: calc(2 * 10px) calc(2 * 10px);
       }
 
@@ -295,7 +201,9 @@ const { title } = Astro.props as Props
             currentColor 75%,
             currentColor
           );
-        background-position: 0 0, 25px 25px;
+        background-position:
+          0 0,
+          25px 25px;
         background-size: calc(2 * 25px) calc(2 * 25px);
       }
 
@@ -316,7 +224,9 @@ const { title } = Astro.props as Props
             currentColor 75%,
             currentColor
           );
-        background-position: 0 0, 50px 50px;
+        background-position:
+          0 0,
+          50px 50px;
         background-size: calc(2 * 50px) calc(2 * 50px);
       }
 
@@ -337,59 +247,33 @@ const { title } = Astro.props as Props
             currentColor 75%,
             currentColor
           );
-        background-position: 0 0, 100px 100px;
+        background-position:
+          0 0,
+          100px 100px;
         background-size: calc(2 * 100px) calc(2 * 100px);
       }
 
       .pattern-grid-sm {
-        background-image: linear-gradient(
-            currentColor 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to right,
-            currentColor 1px,
-            transparent 1px
-          );
+        background-image: linear-gradient(currentColor 1px, transparent 1px),
+          linear-gradient(to right, currentColor 1px, transparent 1px);
         background-size: 10px 10px;
       }
 
       .pattern-grid-md {
-        background-image: linear-gradient(
-            currentColor 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to right,
-            currentColor 1px,
-            transparent 1px
-          );
+        background-image: linear-gradient(currentColor 1px, transparent 1px),
+          linear-gradient(to right, currentColor 1px, transparent 1px);
         background-size: 25px 25px;
       }
 
       .pattern-grid-lg {
-        background-image: linear-gradient(
-            currentColor 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to right,
-            currentColor 1px,
-            transparent 1px
-          );
+        background-image: linear-gradient(currentColor 1px, transparent 1px),
+          linear-gradient(to right, currentColor 1px, transparent 1px);
         background-size: 50px 50px;
       }
 
       .pattern-grid-xl {
-        background-image: linear-gradient(
-            currentColor 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to right,
-            currentColor 1px,
-            transparent 1px
-          );
+        background-image: linear-gradient(currentColor 1px, transparent 1px),
+          linear-gradient(to right, currentColor 1px, transparent 1px);
         background-size: 100px 100px;
       }
 
@@ -402,10 +286,7 @@ const { title } = Astro.props as Props
       }
 
       .pattern-dots-md {
-        background-image: radial-gradient(
-          currentColor 1px,
-          transparent 1px
-        );
+        background-image: radial-gradient(currentColor 1px, transparent 1px);
         background-size: calc(10 * 1px) calc(10 * 1px);
       }
 
@@ -418,60 +299,43 @@ const { title } = Astro.props as Props
       }
 
       .pattern-dots-xl {
-        background-image: radial-gradient(
-          currentColor 2px,
-          transparent 2px
-        );
+        background-image: radial-gradient(currentColor 2px, transparent 2px);
         background-size: calc(10 * 2px) calc(10 * 2px);
       }
 
       .pattern-cross-dots-sm {
-        background-image: radial-gradient(
-            currentColor 0.5px,
-            transparent 0.5px
-          ),
-          radial-gradient(
-            currentColor 0.5px,
-            transparent 0.5px
-          );
+        background-image: radial-gradient(currentColor 0.5px, transparent 0.5px),
+          radial-gradient(currentColor 0.5px, transparent 0.5px);
         background-size: calc(20 * 0.5px) calc(20 * 0.5px);
-        background-position: 0 0,
+        background-position:
+          0 0,
           calc(10 * 0.5px) calc(10 * 0.5px);
       }
 
       .pattern-cross-dots-md {
-        background-image: radial-gradient(
-            currentColor 1px,
-            transparent 1px
-          ),
+        background-image: radial-gradient(currentColor 1px, transparent 1px),
           radial-gradient(currentColor 1px, transparent 1px);
         background-size: calc(20 * 1px) calc(20 * 1px);
-        background-position: 0 0,
+        background-position:
+          0 0,
           calc(10 * 1px) calc(10 * 1px);
       }
 
       .pattern-cross-dots-lg {
-        background-image: radial-gradient(
-            currentColor 1.5px,
-            transparent 1.5px
-          ),
-          radial-gradient(
-            currentColor 1.5px,
-            transparent 1.5px
-          );
+        background-image: radial-gradient(currentColor 1.5px, transparent 1.5px),
+          radial-gradient(currentColor 1.5px, transparent 1.5px);
         background-size: calc(20 * 1.5px) calc(20 * 1.5px);
-        background-position: 0 0,
+        background-position:
+          0 0,
           calc(10 * 1.5px) calc(10 * 1.5px);
       }
 
       .pattern-cross-dots-xl {
-        background-image: radial-gradient(
-            currentColor 2px,
-            transparent 2px
-          ),
+        background-image: radial-gradient(currentColor 2px, transparent 2px),
           radial-gradient(currentColor 2px, transparent 2px);
         background-size: calc(20 * 2px) calc(20 * 2px);
-        background-position: 0 0,
+        background-position:
+          0 0,
           calc(10 * 2px) calc(10 * 2px);
       }
 
@@ -720,98 +584,38 @@ const { title } = Astro.props as Props
       }
 
       .pattern-zigzag-sm {
-        background: linear-gradient(
-              135deg,
-              currentColor 25%,
-              transparent 25%
-            ) -10px 0,
-          linear-gradient(
-              225deg,
-              currentColor 25%,
-              transparent 25%
-            ) -10px 0,
-          linear-gradient(
-            315deg,
-            currentColor 25%,
-            transparent 25%
-          ),
-          linear-gradient(
-            45deg,
-            currentColor 25%,
-            transparent 25%
-          );
+        background:
+          linear-gradient(135deg, currentColor 25%, transparent 25%) -10px 0,
+          linear-gradient(225deg, currentColor 25%, transparent 25%) -10px 0,
+          linear-gradient(315deg, currentColor 25%, transparent 25%),
+          linear-gradient(45deg, currentColor 25%, transparent 25%);
         background-size: calc(2 * 10px) calc(2 * 10px);
       }
 
       .pattern-zigzag-md {
-        background: linear-gradient(
-              135deg,
-              currentColor 25%,
-              transparent 25%
-            ) -25px 0,
-          linear-gradient(
-              225deg,
-              currentColor 25%,
-              transparent 25%
-            ) -25px 0,
-          linear-gradient(
-            315deg,
-            currentColor 25%,
-            transparent 25%
-          ),
-          linear-gradient(
-            45deg,
-            currentColor 25%,
-            transparent 25%
-          );
+        background:
+          linear-gradient(135deg, currentColor 25%, transparent 25%) -25px 0,
+          linear-gradient(225deg, currentColor 25%, transparent 25%) -25px 0,
+          linear-gradient(315deg, currentColor 25%, transparent 25%),
+          linear-gradient(45deg, currentColor 25%, transparent 25%);
         background-size: calc(2 * 25px) calc(2 * 25px);
       }
 
       .pattern-zigzag-lg {
-        background: linear-gradient(
-              135deg,
-              currentColor 25%,
-              transparent 25%
-            ) -50px 0,
-          linear-gradient(
-              225deg,
-              currentColor 25%,
-              transparent 25%
-            ) -50px 0,
-          linear-gradient(
-            315deg,
-            currentColor 25%,
-            transparent 25%
-          ),
-          linear-gradient(
-            45deg,
-            currentColor 25%,
-            transparent 25%
-          );
+        background:
+          linear-gradient(135deg, currentColor 25%, transparent 25%) -50px 0,
+          linear-gradient(225deg, currentColor 25%, transparent 25%) -50px 0,
+          linear-gradient(315deg, currentColor 25%, transparent 25%),
+          linear-gradient(45deg, currentColor 25%, transparent 25%);
         background-size: calc(2 * 50px) calc(2 * 50px);
       }
 
       .pattern-zigzag-xl {
-        background: linear-gradient(
-              135deg,
-              currentColor 25%,
-              transparent 25%
-            ) -100px 0,
-          linear-gradient(
-              225deg,
-              currentColor 25%,
-              transparent 25%
-            ) -100px 0,
-          linear-gradient(
-            315deg,
-            currentColor 25%,
-            transparent 25%
-          ),
-          linear-gradient(
-            45deg,
-            currentColor 25%,
-            transparent 25%
-          );
+        background:
+          linear-gradient(135deg, currentColor 25%, transparent 25%) -100px 0,
+          linear-gradient(225deg, currentColor 25%, transparent 25%) -100px 0,
+          linear-gradient(315deg, currentColor 25%, transparent 25%),
+          linear-gradient(45deg, currentColor 25%, transparent 25%);
         background-size: calc(2 * 100px) calc(2 * 100px);
       }
 

@@ -1,44 +1,46 @@
 ---
-import Menu from "./Menu.astro";
-import Footer from "./Footer.astro";
-import MenuItem from "./MenuItem.astro";
-import AboutIcon from "./svg/About.astro";
-import PortfolioIcon from "./svg/Portfolio.astro";
+import Menu from './Menu.astro'
+import Footer from './Footer.astro'
+import MenuItem from './MenuItem.astro'
+import AboutIcon from './svg/About.astro'
+import PortfolioIcon from './svg/Portfolio.astro'
 ---
 
-<div class="container">
-   <Menu>
-      <MenuItem
-         name="about"
-         href="/">
-         <AboutIcon />
-      </MenuItem>
-      <MenuItem
-         name="portfolio"
-         href="/portfolio">
-         <PortfolioIcon />
-      </MenuItem>
-   </Menu>
-   <slot />
-   <Footer />
+<div class='container'>
+  <Menu>
+    <MenuItem
+      name='about'
+      href='/'
+    >
+      <AboutIcon />
+    </MenuItem>
+    <MenuItem
+      name='portfolio'
+      href='/portfolio'
+    >
+      <PortfolioIcon />
+    </MenuItem>
+  </Menu>
+  <slot />
+  <Footer />
 </div>
 
 <style>
-   .container {
-      width: 100%;
-      --max-width: 1000px;
-      max-width: var(--max-width);
-      min-height: 100vh;
-      padding: 2em 1em 0;
-      margin-inline: auto;
-      display: grid;
-      column-gap: 1em;
-      row-gap: 1em;
-      grid-template-columns: 1fr 1fr min-content;
-      grid-template-rows: min-content 1fr max-content;
-      grid-template-areas:
-         "header header menu"
-         "main main main"
-         "footer footer footer";
-   }
+  .container {
+    width: 100%;
+    --max-width: 1000px;
+    max-width: var(--max-width);
+    min-height: 100vh;
+    padding: 2em 1em 0;
+    margin-inline: auto;
+    display: grid;
+    column-gap: 1em;
+    row-gap: 1em;
+    grid-template-columns: 1fr 1fr min-content;
+    grid-template-rows: min-content 1fr max-content;
+    grid-template-areas:
+      'header header menu'
+      'main main main'
+      'footer footer footer';
+  }
 </style>

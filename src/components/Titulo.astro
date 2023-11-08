@@ -1,46 +1,50 @@
 ---
 export interface Props {
-   titulo: string;
-   span: string;
+  titulo: string
+  span: string
 }
-const { titulo, span } = Astro.props;
+const { titulo, span } = Astro.props
 ---
 
-<h1><span class="text-gradient">{span}</span>{titulo}</h1>
+<h1><span class='text-gradient'>{span}</span>{titulo}</h1>
 
 <style>
-   h1 {
-      --astro-gradient: linear-gradient(90deg, var(--primary-300), var(--primary-500));
-      grid-area: header;
-      margin: 0;
-      width: fit-content;
-      line-height: 1.2;
-      letter-spacing: -.1rem;
-      font-family: encode-700, sans-serif;
-      font-size: var(--fs-2);
-      text-align: left;
-      color: var(--secondary-dark);
-      display: flex;
-      flex-direction: column;
-   }
+  h1 {
+    --astro-gradient: linear-gradient(
+      90deg,
+      var(--primary-300),
+      var(--primary-500)
+    );
+    grid-area: header;
+    margin: 0;
+    width: fit-content;
+    line-height: 1.2;
+    letter-spacing: -0.1rem;
+    font-family: encode-700, sans-serif;
+    font-size: var(--fs-2);
+    text-align: left;
+    color: var(--secondary-dark);
+    display: flex;
+    flex-direction: column;
+  }
 
-   .text-gradient {
-      letter-spacing: -.05rem;
-      font-size: var(--fs-4);
-      font-family: encode-900, sans-serif;
-      background-image: var(--astro-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-   }
+  .text-gradient {
+    letter-spacing: -0.05rem;
+    font-size: var(--fs-4);
+    font-family: encode-900, sans-serif;
+    background-image: var(--astro-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-   @media (hover:hover) {
-      h1 {
-         font-size: var(--fs-3);
-         text-align: center;
-      }
+  @media (hover: hover) {
+    h1 {
+      font-size: var(--fs-3);
+      text-align: center;
+    }
 
-      .text-gradient {
-         font-size: var(--fs-5);
-      }
-   }
+    .text-gradient {
+      font-size: var(--fs-5);
+    }
+  }
 </style>
