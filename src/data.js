@@ -2,6 +2,7 @@ import egidazu from './images/portfolio-400/egidazu-web.webp'
 import autoescuela from './images/portfolio-400/web-autoescuela.webp'
 import master from './images/portfolio-400/master-inicio.webp'
 import master2 from './images/portfolio-400/master-wpa.webp'
+import masterGespace from './images/portfolio-400/master-gespa.png'
 
 export const proyectos = [
   {
@@ -32,5 +33,12 @@ export const proyectos = [
     alt: 'Sitio Web Master en Medicina de Emergencia',
     proyecto: 'Sitio Web Master',
     fecha: 'Marzo 2022'
+  },
+  {
+    href: 'https://mastergespa.com',
+    imagen: masterGespace,
+    alt: 'Sitio Web Master en Gestión de Pacientes',
+    proyecto: 'Sitio Web Master Gespa',
+    fecha: 'Octubre 2023'
   }
 ]
