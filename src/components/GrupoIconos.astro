@@ -1,43 +1,50 @@
 ---
-import GithubIcon from "./svg/GithubIcon.astro";
-import LinkedinIcon from "./svg/LinkedinIcon.astro";
-import EmailIcon from "./svg/EmailIcon.astro";
+import GithubIcon from './svg/GithubIcon.astro'
+import LinkedinIcon from './svg/LinkedinIcon.astro'
+import EmailIcon from './svg/EmailIcon.astro'
 
 export interface Props {
-   className?: string;
+  className?: string
 }
-const { className = "" } = Astro.props;
+const { className = '' } = Astro.props
 ---
 
 <aside class={className}>
-   <a
-      href="mailto:aportuvas@outlook.es"
-      title="Icono de Email"
-      target="_blank"
-      rel="noopener noreferrer">
-      <EmailIcon />
-   </a>
-   <a
-      href="https://github.com/jorgeabf"
-      title="Icono de Github"
-      target="_blank"
-      rel="noopener noreferrer">
-      <GithubIcon />
-   </a>
-   <a
-      href="https://linkedin.com/in/jorge-arce-balluerca"
-      title="Icono de Linkedin"
-      target="_blank"
-      rel="noopener noreferrer">
-      <LinkedinIcon />
-   </a>
+  <a
+    href='mailto:aportuvas@outlook.es'
+    title='Icono de Email'
+    target='_blank'
+    rel='noopener noreferrer'
+  >
+    <EmailIcon />
+  </a>
+  <a
+    href='https://github.com/jorgeabf'
+    title='Icono de Github'
+    target='_blank'
+    rel='noopener noreferrer'
+  >
+    <GithubIcon />
+  </a>
+  <a
+    href='https://linkedin.com/in/jorge-arce-balluerca'
+    title='Icono de Linkedin'
+    target='_blank'
+    rel='noopener noreferrer'
+  >
+    <LinkedinIcon />
+  </a>
 </aside>
 <style>
-   aside {
-      display: grid;
-      gap: 0.25em;
-   }
-   a {
-      display: block;
-   }
+  aside {
+    display: grid;
+    gap: 0.25em;
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    right: 1em;
+  }
+  a {
+    display: block;
+  }
 </style>

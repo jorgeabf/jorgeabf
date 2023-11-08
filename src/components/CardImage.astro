@@ -1,76 +1,91 @@
 ---
+import { Picture } from 'astro:assets'
 export interface Props {
-   href: string;
-   imagen: string;
-   alt: string;
-   proyecto: string;
-   fecha: string;
+  href: string
+  imagen: string
+  alt: string
+  proyecto: string
+  fecha: string
 }
-const { href, imagen, alt, proyecto, fecha } = Astro.props;
+const { href, imagen, alt, proyecto, fecha } = Astro.props
 ---
 
-<a href={href} class="card" target="_blank" rel="noopener noreferrer">
-   <div class="card__img-box">
-      <img class="card__img" src={imagen} alt={alt} loading="lazy" width="400" height="225" />
-   </div>
-   <div class="card__content">
-      <h3 class="card__titulo">
-         {proyecto}
-         <span class="card__span">&rarr;</span>
-      </h3>
-      <p class="card__parrafo">
-         {fecha}
-      </p>
-   </div>
+<a
+  href={href}
+  class='card'
+  target='_blank'
+  rel='noopener noreferrer'
+>
+  <div class='card__img-box'>
+    <Picture
+      class='card__img'
+      src={imagen}
+      alt={alt}
+      loading='lazy'
+      decoding='async'
+      width='400'
+      height='225'
+      formats={['avif', 'webp']}
+    />
+  </div>
+  <div class='card__content'>
+    <h3 class='card__titulo'>
+      {proyecto}
+      <span class='card__span'>&rarr;</span>
+    </h3>
+    <p class='card__parrafo'>
+      {fecha}
+    </p>
+  </div>
 </a>
 
 <style>
-   .card {
-      overflow: hidden;
-      border: var(--border);
-      border-radius: var(--border-radius);
-      color: var(--text-coloro);
-   }
+  .card {
+    overflow: hidden;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    color: var(--text-coloro);
+  }
 
-   .card__img-box {
-      overflow: hidden;
-   }
+  .card__img-box {
+    overflow: hidden;
+  }
 
-   .card__img {
-      width: 100%;
-      object-fit: cover;
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-   }
+  .card__img {
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-   .card__content {
-      padding: 1em;
-      border-top: var(--border);
-      background-color: hsl(0, 0%, 100%);
-   }
+  .card__content {
+    padding: 1em;
+    border-top: var(--border);
+    background-color: hsl(0, 0%, 100%);
+  }
 
-   .card__titulo {
-      margin: 0;
-      transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-   }
+  .card__titulo {
+    margin: 0;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-   .card__parrafo {
-      margin-block: 0.5em 0;
-   }
+  .card__parrafo {
+    margin-block: 0.5em 0;
+  }
 
-   .card__span {
-      display: inline-block;
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-   }
+  .card__span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-   .card:is(:hover, :focus-within) .card__img {
-      transform: scale(1.25);
-   }
+  .card:is(:hover, :focus-within) .card__img {
+    transform: scale(1.05);
+  }
 
-   .card:is(:hover, :focus-within) .card__titulo {
-      color: var(--primary);
-   }
+  .card:is(:hover, :focus-within) .card__titulo {
+    color: var(--primary);
+  }
 
-   .card:is(:hover, :focus-within) .card__span {
-      transform: translateX(.2em);
-   }
+  .card:is(:hover, :focus-within) .card__span {
+    transform: translateX(0.2em);
+  }
 </style>
