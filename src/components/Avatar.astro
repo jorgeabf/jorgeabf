@@ -1,40 +1,17 @@
 ---
-import GrupoIconos from "./GrupoIconos.astro";
+import GrupoIconos from './GrupoIconos.astro'
+import Jorgeabf from './svg/Jorgeabf.astro'
 ---
 
-<div class="pattern-dots-md">
-   <img
-      class="avatar"
-      src="jorgeabf.svg"
-      alt="Foto de portada"
-      loading="lazy"
-      width="120"
-      height="120"
-   />
-   <GrupoIconos className="grupo-iconos" />
+<div class='pattern-dots-md'>
+  <Jorgeabf />
+  <GrupoIconos className='grupo-iconos' />
 </div>
 
 <style>
-   .pattern-dots-md {
-      position: relative;
-      margin-block: 1.5em;
-      color: var(--primary-850);
-   }
-
-   .avatar {
-      border-radius: 50%;
-      display: block;
-      text-align: right;
-      margin-inline: auto;
-      background-color: var(--primary-950);
-      opacity: 0.8;
-      transform: translate(0, -1em);
-   }
-
-   .grupo-iconos {
-      position: absolute;
-      top: 50%;
-      transform: translatey(-50%);
-      right: 1em;
-   }
+  .pattern-dots-md {
+    position: relative;
+    margin-block: 1.5em;
+    color: var(--primary-850);
+  }
 </style>
