@@ -16,18 +16,17 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
   target='_blank'
   rel='noopener noreferrer'
 >
-  <div class='card__img-box'>
-    <Picture
-      class='card__img'
-      src={imagen}
-      alt={alt}
-      loading='lazy'
-      decoding='async'
-      width='400'
-      height='225'
-      formats={['avif', 'webp']}
-    />
-  </div>
+  <Picture
+    class='card__img'
+    src={imagen}
+    alt={alt}
+    loading='lazy'
+    decoding='async'
+    formats={['avif', 'webp']}
+    width={400}
+    height={225}
+  />
+
   <div class='card__content'>
     <h3 class='card__titulo'>
       {proyecto}
@@ -41,14 +40,11 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
 
 <style>
   .card {
+    position: relative;
     overflow: hidden;
     border: var(--border);
     border-radius: var(--border-radius);
-    color: var(--text-coloro);
-  }
-
-  .card__img-box {
-    overflow: hidden;
+    color: var(--text-color);
   }
 
   .card__img {
