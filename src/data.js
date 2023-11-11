@@ -9,7 +9,7 @@ export const proyectos = [
     href: 'https://www.ajedrezeguidazu.com',
     imagen: eguidazuImg,
     alt: 'Sitio Web del Club Ajedrez Egidazu',
-    proyecto: 'Club de Ajedrez',
+    proyecto: 'Web Club de Ajedrez',
     fecha: 'Diciembre 2021'
   },
 
@@ -24,21 +24,21 @@ export const proyectos = [
     href: 'https://www.masteremergencias.com',
     imagen: mmeImg,
     alt: 'Landing Page Master en Medicina de Emergencia',
-    proyecto: 'Landing Page Master',
+    proyecto: 'Landing Master Emergencias',
     fecha: 'Marzo 2022'
   },
   {
     href: 'https://www.masteremergencias.com.es',
     imagen: mmeAppImg,
     alt: 'Sitio Web Master en Medicina de Emergencia',
-    proyecto: 'Sitio Web Master',
+    proyecto: 'APP Master Emergencias',
     fecha: 'Marzo 2022'
   },
   {
     href: 'https://mastergespa.com',
     imagen: gespaImg,
     alt: 'Sitio Web Master en Gestión de Pacientes',
-    proyecto: 'Sitio Web Master Gespa',
+    proyecto: 'Web Master Gespa',
     fecha: 'Octubre 2023'
   }
 ]
