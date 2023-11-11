@@ -1,13 +1,13 @@
-import egidazu from './images/portfolio-400/egidazu-web.webp'
-import autoescuela from './images/portfolio-400/web-autoescuela.webp'
-import master from './images/portfolio-400/master-inicio.webp'
-import master2 from './images/portfolio-400/master-wpa.webp'
-import masterGespace from './images/portfolio-400/master-gespa.png'
+import eguidazuImg from './images/eguidazuImg.png'
+import autoescuelaImg from './images/autoescuelaImg.png'
+import mmeImg from './images/mmeImg.png'
+import mmeAppImg from './images/mmeAppImg.png'
+import gespaImg from './images/gespaImg.png'
 
 export const proyectos = [
   {
     href: 'https://www.ajedrezeguidazu.com',
-    imagen: egidazu,
+    imagen: eguidazuImg,
     alt: 'Sitio Web del Club Ajedrez Egidazu',
     proyecto: 'Club de Ajedrez',
     fecha: 'Diciembre 2021'
@@ -15,28 +15,28 @@ export const proyectos = [
 
   {
     href: 'https://www.autoescuelasanprudencio.com',
-    imagen: autoescuela,
+    imagen: autoescuelaImg,
     alt: 'Sitio Web Autoescuela San Prudencio',
     proyecto: 'Web Autoescuela',
     fecha: 'Octubre 2022'
   },
   {
     href: 'https://www.masteremergencias.com',
-    imagen: master,
+    imagen: mmeImg,
     alt: 'Landing Page Master en Medicina de Emergencia',
     proyecto: 'Landing Page Master',
     fecha: 'Marzo 2022'
   },
   {
     href: 'https://www.masteremergencias.com.es',
-    imagen: master2,
+    imagen: mmeAppImg,
     alt: 'Sitio Web Master en Medicina de Emergencia',
     proyecto: 'Sitio Web Master',
     fecha: 'Marzo 2022'
   },
   {
     href: 'https://mastergespa.com',
-    imagen: masterGespace,
+    imagen: gespaImg,
     alt: 'Sitio Web Master en Gestión de Pacientes',
     proyecto: 'Sitio Web Master Gespa',
     fecha: 'Octubre 2023'
