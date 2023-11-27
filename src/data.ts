@@ -4,7 +4,15 @@ import mmeImg from './images/mmeImg.png'
 import mmeAppImg from './images/mmeAppImg.png'
 import gespaImg from './images/gespaImg.png'
 
-export const proyectos = [
+interface Proyecto {
+  href: string
+  imagen: ImageMetadata
+  alt: string
+  proyecto: string
+  fecha: string
+}
+
+export const proyectos: Proyecto[] = [
   {
     href: 'https://www.ajedrezeguidazu.com',
     imagen: eguidazuImg,
@@ -12,7 +20,6 @@ export const proyectos = [
     proyecto: 'Web Club de Ajedrez',
     fecha: 'Diciembre 2021'
   },
-
   {
     href: 'https://www.autoescuelasanprudencio.com',
     imagen: autoescuelaImg,
