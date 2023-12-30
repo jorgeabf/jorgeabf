@@ -1,5 +1,5 @@
 ---
-import { Picture } from 'astro:assets'
+import { Image } from 'astro:assets'
 export interface Props {
   href: string
   imagen: ImageMetadata
@@ -16,12 +16,11 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
   target='_blank'
   rel='noopener noreferrer'
 >
-  <Picture
+  <Image
     class='card__img'
     src={imagen}
     alt={alt}
-    formats={['avif', 'webp']}
-    width={400}
+    height={260}
   />
 
   <div class='card__content'>
