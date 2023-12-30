@@ -11,13 +11,10 @@
     "build": "astro build",
     "preview": "astro preview"
   },
-  "devDependencies": {
-    "astro": "3.4.3",
-    "astro-robots-txt": "1.0.0"
-  },
   "dependencies": {
-    "@astrojs/prefetch": "0.4.1",
-    "@astrojs/sitemap": "3.0.3",
+    "astro": "4.0.8",
+    "astro-robots-txt": "1.0.0",
+    "@astrojs/sitemap": "3.0.4",
     "@fontsource/encode-sans": "5.0.8"
   }
 }

@@ -20,11 +20,8 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
     class='card__img'
     src={imagen}
     alt={alt}
-    loading='lazy'
-    decoding='async'
     formats={['avif', 'webp']}
     width={400}
-    height={225}
   />
 
   <div class='card__content'>
