@@ -2,9 +2,6 @@
   "name": "portfolio-jorge",
   "version": "0.0.1",
   "private": true,
-  "engines": {
-    "node": "18"
-  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,9 +9,9 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "4.0.8",
-    "astro-robots-txt": "1.0.0",
-    "@astrojs/sitemap": "3.0.4",
-    "@fontsource/encode-sans": "5.0.8"
+    "@astrojs/sitemap": "3.1.6",
+    "@fontsource/encode-sans": "5.0.8",
+    "astro": "4.13.1",
+    "astro-robots-txt": "1.0.0"
   }
 }

@@ -1,8 +1,8 @@
-import eguidazuImg from './images/eguidazuImg.png'
-import autoescuelaImg from './images/autoescuelaImg.png'
-import mmeImg from './images/mmeImg.png'
-import mmeAppImg from './images/mmeAppImg.png'
-import gespaImg from './images/gespaImg.png'
+import eguidazuImg from './images/eguidazuImg.webp'
+import autoescuelaImg from './images/autoescuelaImg.webp'
+import mmeImg from './images/mmeImg.webp'
+import mmeAppImg from './images/mmeAppImg.webp'
+import gespaImg from './images/gespaImg.webp'
 
 interface Proyecto {
   href: string
@@ -28,14 +28,14 @@ export const proyectos: Proyecto[] = [
     fecha: 'Octubre 2022'
   },
   {
-    href: 'https://www.masteremergencias.com',
+    href: 'https://masteremergencias.com',
     imagen: mmeImg,
     alt: 'Landing Page Master en Medicina de Emergencia',
     proyecto: 'Landing Master Emergencias',
     fecha: 'Marzo 2022'
   },
   {
-    href: 'https://www.masteremergencias.com.es',
+    href: 'https://app.masteremergencias.com',
     imagen: mmeAppImg,
     alt: 'Sitio Web Master en Medicina de Emergencia',
     proyecto: 'APP Master Emergencias',

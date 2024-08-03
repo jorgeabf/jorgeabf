@@ -20,7 +20,7 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
     class='card__img'
     src={imagen}
     alt={alt}
-    height={260}
+    height={300}
   />
 
   <div class='card__content'>
@@ -36,6 +36,7 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
 
 <style>
   .card {
+    max-width: 100%;
     position: relative;
     overflow: hidden;
     border: var(--border);
@@ -45,7 +46,7 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
 
   .card__img {
     width: 100%;
-    object-fit: cover;
+    object-fit: fill;
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
