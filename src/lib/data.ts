@@ -1,8 +1,8 @@
-import eguidazuImg from './images/eguidazuImg.webp'
-import autoescuelaImg from './images/autoescuelaImg.webp'
-import mmeImg from './images/mmeImg.webp'
-import mmeAppImg from './images/mmeAppImg.webp'
-import gespaImg from './images/gespaImg.webp'
+import eguidazuImg from '../assets/eguidazuImg.webp'
+import autoescuelaImg from '../assets/autoescuelaImg.webp'
+import mmeImg from '../assets/mmeImg.webp'
+import mmeAppImg from '../assets/mmeAppImg.webp'
+import gespaImg from '../assets/gespaImg.webp'
 
 interface Proyecto {
   href: string
