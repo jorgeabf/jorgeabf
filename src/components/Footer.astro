@@ -1,5 +1,10 @@
 <footer>
   <p>&copy; Jorge Arce Balluerca</p>
+  <nav class="legal-links">
+    <a href="/aviso-legal">Aviso Legal</a>
+    <span class="separator">·</span>
+    <a href="/politica-de-privacidad">Privacidad</a>
+  </nav>
 </footer>
 <style>
   footer {
@@ -10,7 +15,38 @@
     text-align: center;
     border-top: var(--border);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    font-size: 0.9em;
+  }
+
+  .legal-links a {
+    color: var(--primary-400);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .legal-links a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+  }
+
+  .separator {
+    color: var(--primary-700);
+  }
+
+  @media (min-width: 768px) {
+    footer {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 </style>

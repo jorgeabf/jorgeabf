@@ -1,0 +1,230 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from '../components/Container.astro'
+import Titulo from '../components/Titulo.astro'
+
+// Datos del titular - Configuración de máxima privacidad
+const DATOS_TITULAR = {
+  nombre: 'Jorge Arce Balluerca',
+  nif: 'Disponible bajo petición',
+  direccion: 'Vitoria-Gasteiz, Álava, España',
+  email: 'jorgeabf1@outlook.es'
+}
+---
+
+<Layout title='Política de Privacidad | Jorge Arce Balluerca'>
+  <Container>
+    <Titulo
+      titulo=''
+      span='Política de Privacidad'
+    />
+    <main>
+      <section class='legal'>
+        <h2>1. Responsable del Tratamiento</h2>
+        <p>
+          En cumplimiento del Reglamento General de Protección de Datos (RGPD -
+          UE 2016/679) y la Ley Orgánica 3/2018, de 5 de diciembre, de
+          Protección de Datos Personales y garantía de los derechos digitales
+          (LOPDGDD), se informa a los usuarios sobre la política de privacidad
+          de este sitio web.
+        </p>
+        <ul>
+          <li><strong>Responsable:</strong> {DATOS_TITULAR.nombre}</li>
+          <li><strong>NIF/DNI:</strong> {DATOS_TITULAR.nif}</li>
+          <li><strong>Localización:</strong> {DATOS_TITULAR.direccion}</li>
+          <li>
+            <strong>Email:</strong>
+            <a href={`mailto:${DATOS_TITULAR.email}`}>{DATOS_TITULAR.email}</a>
+          </li>
+        </ul>
+
+        <h2>2. Datos que Recopilamos</h2>
+        <div class='highlight'>
+          <p>
+            <strong
+              >🔒 Este sitio web NO recopila, almacena ni procesa datos
+              personales de los usuarios.</strong
+            >
+          </p>
+        </div>
+        <p>Este sitio es un portfolio profesional estático que:</p>
+        <ul>
+          <li>❌ No utiliza cookies de seguimiento</li>
+          <li>
+            ❌ No utiliza herramientas de análisis (Google Analytics, etc.)
+          </li>
+          <li>❌ No utiliza formularios de contacto</li>
+          <li>❌ No almacena información del visitante</li>
+          <li>❌ No realiza seguimiento de navegación</li>
+        </ul>
+
+        <h2>3. Cookies</h2>
+        <p>
+          Este sitio web <strong>NO utiliza cookies</strong>, salvo una cookie
+          técnica opcional para recordar que has visto el mensaje informativo de
+          privacidad (si estuviera habilitado). Esta cookie:
+        </p>
+        <ul>
+          <li>
+            Es completamente opcional y no afecta a la funcionalidad del sitio
+          </li>
+          <li>No recopila datos personales</li>
+          <li>Se almacena localmente en tu navegador</li>
+          <li>Expira después de 30 días</li>
+          <li>Puede eliminarse desde la configuración de tu navegador</li>
+        </ul>
+
+        <h2>4. Enlaces a Sitios de Terceros</h2>
+        <p>
+          Este sitio web puede contener enlaces a proyectos web externos y
+          perfiles en redes sociales (GitHub, LinkedIn). Estos sitios tienen sus
+          propias políticas de privacidad que están fuera del control de {
+            DATOS_TITULAR.nombre
+          }.
+        </p>
+        <p>Te recomendamos revisar las políticas de privacidad de:</p>
+        <ul>
+          <li>
+            <a
+              href='https://docs.github.com/es/site-policy/privacy-policies'
+              target='_blank'
+              rel='noopener noreferrer'
+              >GitHub Privacy Policy</a>
+          </li>
+          <li>
+            <a
+              href='https://www.linkedin.com/legal/privacy-policy'
+              target='_blank'
+              rel='noopener noreferrer'
+              >LinkedIn Privacy Policy</a>
+          </li>
+        </ul>
+
+        <h2>5. Tus Derechos (RGPD)</h2>
+        <p>
+          Aunque este sitio web no recopila datos personales, como usuario
+          tienes derecho a:
+        </p>
+        <ul>
+          <li>
+            <strong>Acceso:</strong> Solicitar qué datos tenemos sobre ti (ninguno
+            en este caso)
+          </li>
+          <li><strong>Rectificación:</strong> Corregir datos inexactos</li>
+          <li>
+            <strong>Supresión:</strong> Solicitar la eliminación de tus datos
+          </li>
+          <li>
+            <strong>Portabilidad:</strong> Recibir tus datos en formato estructurado
+          </li>
+          <li>
+            <strong>Oposición:</strong> Oponerte al tratamiento de tus datos
+          </li>
+          <li>
+            <strong>Limitación:</strong> Solicitar la limitación del tratamiento
+          </li>
+        </ul>
+        <p>
+          Para ejercer estos derechos, puedes contactar a través de:
+          <a href={`mailto:${DATOS_TITULAR.email}`}>{DATOS_TITULAR.email}</a>
+        </p>
+        <p>
+          También tienes derecho a presentar una reclamación ante la Agencia
+          Española de Protección de Datos (<a
+            href='https://www.aepd.es'
+            target='_blank'
+            rel='noopener noreferrer'
+            >www.aepd.es</a
+          >).
+        </p>
+
+        <h2>6. Seguridad</h2>
+        <p>
+          Aunque no recopilamos datos personales, este sitio web está alojado en
+          servidores seguros y utiliza protocolo HTTPS para proteger la conexión
+          entre tu navegador y el servidor.
+        </p>
+
+        <h2>7. Cambios en la Política de Privacidad</h2>
+        <p>
+          {DATOS_TITULAR.nombre} se reserva el derecho a modificar esta Política
+          de Privacidad en cualquier momento. Los cambios entrarán en vigor desde
+          su publicación en esta página.
+        </p>
+        <p>
+          Si en el futuro se incorporan formularios de contacto o herramientas
+          que requieran el tratamiento de datos personales, se actualizará esta
+          política y se solicitará el consentimiento correspondiente.
+        </p>
+
+        <h2>8. Contacto</h2>
+        <p>
+          Para cualquier duda o consulta sobre esta Política de Privacidad,
+          puedes contactar con:
+        </p>
+        <ul>
+          <li>
+            <strong>Email:</strong>
+            <a href={`mailto:${DATOS_TITULAR.email}`}>{DATOS_TITULAR.email}</a>
+          </li>
+        </ul>
+
+        <p class='updated'>
+          <small><em>Última actualización: 19 de octubre de 2025</em></small>
+        </p>
+      </section>
+    </main>
+  </Container>
+</Layout>
+
+<style>
+  .legal {
+    max-width: 70ch;
+  }
+
+  .legal h2 {
+    color: var(--primary-300);
+    margin-top: 2em;
+    font-size: var(--fs-2);
+  }
+
+  .legal p {
+    line-height: 1.8;
+    color: var(--text-color);
+  }
+
+  .legal ul {
+    line-height: 1.8;
+    color: var(--text-color);
+  }
+
+  .legal a {
+    color: var(--primary-400);
+    text-decoration: underline;
+  }
+
+  .legal a:hover {
+    color: var(--secondary);
+  }
+
+  .highlight {
+    background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+    border-left: 4px solid #28a745;
+    padding: 1em 1.5em;
+    margin: 1.5em 0;
+    border-radius: 8px;
+  }
+
+  .highlight p {
+    margin: 0;
+    font-size: 1.1em;
+  }
+
+  .updated {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid var(--primary-900);
+    text-align: center;
+    color: var(--text-color-light);
+  }
+</style>

@@ -1,0 +1,334 @@
+---
+interface Props {
+  message?: string;
+  theme?: 'green' | 'blue' | 'gray' | 'red';
+  useGoogleMaps?: boolean;
+  useSearchConsole?: boolean;
+  useContactForm?: boolean;
+}
+
+const { 
+  message,
+  theme = 'gray',
+  useSearchConsole = false,
+  useGoogleMaps = false,
+  useContactForm = false
+} = Astro.props;
+
+// Generar mensaje automático según las herramientas usadas
+const getAutoMessage = () => {
+  const hasAnyTool = useGoogleMaps || useSearchConsole || useContactForm;
+  
+  if (!hasAnyTool) {
+    return "Este sitio web <strong>no utiliza cookies</strong> ni herramientas de seguimiento.";
+  }
+  
+  const tools = [];
+  if (useGoogleMaps) tools.push('Google Maps');
+  if (useSearchConsole) tools.push('Google Search Console');
+  
+  let formText = '';
+  if (useContactForm) {
+    formText = ' y recopila datos a través de formularios';
+  }
+  
+  if (tools.length === 0 && useContactForm) {
+    return "Este sitio web <strong>no usa cookies de seguimiento</strong>. Solo recopila datos que tú proporcionas voluntariamente a través de formularios.";
+  }
+  
+  if (tools.length === 1 && !useContactForm) {
+    return `Este sitio web <strong>no utiliza cookies de seguimiento</strong>. Solo usa ${tools[0]} para ${useSearchConsole ? 'monitoreo técnico' : 'mostrar mapas'}.`;
+  }
+  
+  const toolsText = tools.length > 0 ? `usa <strong>${tools.join(' y ')}</strong>` : '';
+  return `Este sitio web ${toolsText}${formText}. Respetamos tu privacidad.`;
+};
+
+const finalMessage = message || getAutoMessage();
+---
+
+<aside id="privacy-banner" class="banner" data-theme={theme}>
+  <div class="content">
+    <p set:html={finalMessage}></p>
+    <div class="actions">
+      <button id="btn-accept" class="btn primary">Entendido</button>
+      <button id="btn-info" class="btn secondary">Más info</button>
+    </div>
+  </div>
+</aside>
+
+<dialog id="privacy-modal" class="modal">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Información de privacidad</h2>
+      <button id="btn-close" class="close" type="button" aria-label="Cerrar">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+      <h3>🔒 Tu privacidad está protegida</h3>
+      <p>Este sitio web <strong>NO utiliza cookies de seguimiento</strong> ni herramientas de análisis que rastreen tu comportamiento.</p>
+      
+      {(useGoogleMaps || useSearchConsole || useContactForm) && (
+        <>
+          <h3>¿Qué datos utilizamos?</h3>
+          
+          {useContactForm && (
+            <>
+              <p><strong>Formulario de contacto</strong>:</p>
+              <ul>
+                <li>Solo recopilamos los datos que <strong>tú proporcionas voluntariamente</strong></li>
+                <li>Nombre, email y mensaje (según el formulario)</li>
+                <li>Se usan únicamente para <strong>responder a tu consulta</strong></li>
+                <li>No se comparten con terceros sin tu consentimiento</li>
+                <li>Puedes solicitar su eliminación en cualquier momento</li>
+              </ul>
+            </>
+          )}
+          
+          {useSearchConsole && (
+            <>
+              <p><strong>Google Search Console</strong>:</p>
+              <ul>
+                <li>No rastrea visitantes individuales</li>
+                <li>No coloca cookies de seguimiento</li>
+                <li>Solo mejora visibilidad en buscadores</li>
+              </ul>
+            </>
+          )}
+          
+          {useGoogleMaps && (
+            <>
+              <p><strong>Google Maps</strong>:</p>
+              <ul>
+                <li>Solo para mostrar ubicaciones</li>
+                <li>Cookies técnicas necesarias para el mapa</li>
+                <li>No se usa para seguimiento de usuarios</li>
+              </ul>
+            </>
+          )}
+          
+          <h3>📋 Tus derechos (RGPD)</h3>
+          <p>Tienes derecho a:</p>
+          <ul>
+            <li><strong>Acceso</strong>: Ver qué datos tenemos</li>
+            <li><strong>Rectificación</strong>: Corregir datos incorrectos</li>
+            <li><strong>Supresión</strong>: Eliminar tus datos</li>
+            <li><strong>Portabilidad</strong>: Recibir tus datos</li>
+            <li><strong>Oposición</strong>: Rechazar el procesamiento</li>
+          </ul>
+        </>
+      )}
+      
+      {!useGoogleMaps && !useSearchConsole && !useContactForm && (
+        <p><strong>Este sitio es 100% libre de cookies y seguimiento.</strong></p>
+      )}
+    </div>
+    
+    <div class="modal-footer">
+      <button id="btn-ok" class="btn primary" type="button">Entendido</button>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  /* Temas */
+  [data-theme="green"] { --c: #28a745; --c-hover: #218838; --bg: linear-gradient(135deg, #e8f5e8, #f0f8f0); --txt: #155724; }
+  [data-theme="blue"] { --c: #2196f3; --c-hover: #1976d2; --bg: linear-gradient(135deg, #e3f2fd, #f1f8e9); --txt: #0d47a1; }
+  [data-theme="gray"] { --c: #6c757d; --c-hover: #545b62; --bg: linear-gradient(135deg, #f8f9fa, #e9ecef); --txt: #495057; }
+  [data-theme="red"] { --c: #dc3545; --c-hover: #c82333; --bg: linear-gradient(135deg, #f8d7da, #f5c6cb); --txt: #721c24; }
+
+  .banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-top: 2px solid var(--c);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+  }
+
+  .banner.show { transform: translateY(0); }
+
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .content p {
+    flex: 1;
+    color: var(--txt);
+    margin: 0;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .primary {
+    background: var(--c);
+    color: white;
+  }
+
+  .primary:hover { background: var(--c-hover); }
+
+  .secondary {
+    background: transparent;
+    color: var(--c);
+    border: 1px solid var(--c);
+  }
+
+  .secondary:hover {
+    background: var(--c);
+    color: white;
+  }
+
+  dialog {
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    max-width: min(600px, calc(100% - 2rem));
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  dialog::backdrop {
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-container { display: flex; flex-direction: column; }
+
+  .modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-header h2 { margin: 0; color: #333; }
+
+  .close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+  }
+
+  .close:hover { background: #f5f5f5; color: #333; }
+
+  .modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .modal-body h3 {
+    color: #667eea;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .modal-body p { color: #666; }
+
+  .modal-body ul {
+    color: #666;
+    margin: 0.5rem 0 1rem 1.5rem;
+  }
+
+  .modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #eee;
+    text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .actions { width: 100%; justify-content: center; }
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'privacySeen';
+  const DAYS = 30;
+
+  const $ = (id: string) => document.getElementById(id);
+  
+  const setCookie = (name: string, value: string, days: number) => {
+    const d = new Date();
+    d.setTime(d.getTime() + days * 864e5);
+    document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
+  };
+
+  const getCookie = (name: string) => 
+    document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`))?.[2];
+
+  const banner = $('privacy-banner');
+  const modal = $('privacy-modal') as HTMLDialogElement | null;
+
+  const show = () => {
+    if (!banner) return;
+    banner.classList.add('show');
+    document.body.style.paddingBottom = `${banner.offsetHeight}px`;
+  };
+
+  const hide = () => {
+    if (!banner) return;
+    banner.classList.remove('show');
+    document.body.style.paddingBottom = '0';
+  };
+
+  const accept = () => {
+    setCookie(STORAGE_KEY, '1', DAYS);
+    hide();
+  };
+
+  $('btn-accept')?.addEventListener('click', accept);
+  $('btn-info')?.addEventListener('click', () => modal?.showModal());
+  $('btn-close')?.addEventListener('click', () => modal?.close());
+  $('btn-ok')?.addEventListener('click', () => modal?.close());
+
+  if (!getCookie(STORAGE_KEY)) setTimeout(show, 1000);
+
+  // Declarar en el objeto global
+  declare global {
+    interface Window {
+      privacyManager: {
+        show: () => void;
+        hide: () => void;
+        accept: () => void;
+        reset: () => void;
+      };
+    }
+  }
+
+  window.privacyManager = { 
+    show, 
+    hide, 
+    accept, 
+    reset: () => location.reload() 
+  };
+</script>
