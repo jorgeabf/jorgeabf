@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from '../components/Container.astro'
+import Titulo from '../components/Titulo.astro'
+
+// Datos del titular - Configuración de máxima privacidad
+const DATOS_TITULAR = {
+  nombre: 'Jorge Arce Balluerca',
+  nif: 'Disponible bajo petición',
+  direccion: 'Vitoria-Gasteiz, Álava, España',
+  email: 'jorgeabf1@outlook.es'
+}
+---
+
+<Layout title='Aviso Legal | Jorge Arce Balluerca'>
+  <Container>
+    <Titulo
+      titulo=''
+      span='Aviso Legal'
+    />
+    <main>
+      <section class='legal'>
+        <h2>1. Datos Identificativos</h2>
+        <p>
+          En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de
+          Servicios de la Sociedad de la Información y de Comercio Electrónico
+          (LSSI-CE), se informa a los usuarios de los datos identificativos del
+          titular de este sitio web:
+        </p>
+        <ul>
+          <li><strong>Titular:</strong> {DATOS_TITULAR.nombre}</li>
+          <li><strong>NIF/DNI:</strong> {DATOS_TITULAR.nif}</li>
+          <li><strong>Localización:</strong> {DATOS_TITULAR.direccion}</li>
+          <li>
+            <strong>Email:</strong>
+            <a href={`mailto:${DATOS_TITULAR.email}`}>{DATOS_TITULAR.email}</a>
+          </li>
+        </ul>
+
+        <h2>2. Objeto</h2>
+        <p>
+          Este sitio web tiene como finalidad mostrar el portfolio profesional
+          de {DATOS_TITULAR.nombre}
+          como desarrollador frontend, incluyendo proyectos realizados, habilidades
+          técnicas y información de contacto profesional.
+        </p>
+
+        <h2>3. Condiciones de Uso</h2>
+        <p>
+          El acceso y uso de este sitio web implica la aceptación de las
+          presentes condiciones. El usuario se compromete a:
+        </p>
+        <ul>
+          <li>
+            Utilizar el sitio web de forma lícita y conforme a la legislación
+            vigente
+          </li>
+          <li>
+            No realizar actividades que puedan dañar, inutilizar o sobrecargar
+            el sitio web
+          </li>
+          <li>
+            No introducir virus, código malicioso o cualquier programa que pueda
+            causar daños
+          </li>
+        </ul>
+
+        <h2>4. Propiedad Intelectual e Industrial</h2>
+        <p>
+          Todos los contenidos del sitio web (textos, imágenes, código, diseño,
+          logotipos, etc.) son propiedad de {DATOS_TITULAR.nombre} o se cuenta con
+          las licencias necesarias para su uso, y están protegidos por las leyes
+          de propiedad intelectual e industrial españolas e internacionales.
+        </p>
+        <p>
+          Queda prohibida la reproducción, distribución, comunicación pública o
+          transformación de los contenidos sin autorización expresa del titular,
+          salvo en los casos permitidos por la ley.
+        </p>
+
+        <h2>5. Enlaces Externos</h2>
+        <p>
+          Este sitio web puede contener enlaces a sitios web de terceros. {
+            DATOS_TITULAR.nombre
+          } no se hace responsable del contenido, políticas de privacidad o prácticas
+          de estos sitios externos.
+        </p>
+
+        <h2>6. Limitación de Responsabilidad</h2>
+        <p>
+          {DATOS_TITULAR.nombre} no se hace responsable de:
+        </p>
+        <ul>
+          <li>
+            La continuidad y disponibilidad de los contenidos del sitio web
+          </li>
+          <li>Los daños que puedan derivarse del uso indebido del sitio web</li>
+          <li>Posibles errores u omisiones en los contenidos</li>
+        </ul>
+
+        <h2>7. Protección de Datos</h2>
+        <p>
+          Este sitio web <strong
+            >NO recopila datos personales de los usuarios</strong
+          >. No se utilizan cookies de seguimiento ni herramientas de análisis.
+          Para más información, consulta la
+          <a href='/politica-de-privacidad'>Política de Privacidad</a>.
+        </p>
+
+        <h2>8. Modificaciones</h2>
+        <p>
+          {DATOS_TITULAR.nombre} se reserva el derecho a modificar el presente Aviso
+          Legal en cualquier momento. Los cambios serán efectivos desde su publicación
+          en el sitio web.
+        </p>
+
+        <h2>9. Legislación Aplicable y Jurisdicción</h2>
+        <p>
+          El presente Aviso Legal se rige por la legislación española. Para
+          cualquier controversia derivada del uso de este sitio web, las partes
+          se someten a los Juzgados y Tribunales del domicilio del usuario o de
+          Vitoria-Gasteiz, renunciando expresamente a cualquier otro fuero que
+          pudiera corresponderles.
+        </p>
+
+        <p class='updated'>
+          <small><em>Última actualización: 19 de octubre de 2025</em></small>
+        </p>
+      </section>
+    </main>
+  </Container>
+</Layout>
+
+<style>
+  .legal {
+    max-width: 70ch;
+  }
+
+  .legal h2 {
+    color: var(--primary-300);
+    margin-top: 2em;
+    font-size: var(--fs-2);
+  }
+
+  .legal p {
+    line-height: 1.8;
+    color: var(--text-color);
+  }
+
+  .legal ul {
+    line-height: 1.8;
+    color: var(--text-color);
+  }
+
+  .legal a {
+    color: var(--primary-400);
+    text-decoration: underline;
+  }
+
+  .legal a:hover {
+    color: var(--secondary);
+  }
+
+  .updated {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid var(--primary-900);
+    text-align: center;
+    color: var(--text-color-light);
+  }
+</style>
