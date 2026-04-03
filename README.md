@@ -20,22 +20,13 @@ Portfolio: [jorgearce.dev](https://jorgearce.dev)
 
 Tecnologías y herramientas que usa este proyecto actualmente:
 
-![Stack portfolio](https://skillicons.dev/icons?i=astro,ts,nodejs,vercel)
-
-- Astro 6
-- TypeScript
-- Sharp
-- @astrojs/sitemap
-- astro-robots-txt
-- pnpm 10
-- Node 24.14.1
-- Vercel (deploy)
+![Stack portfolio](https://skillicons.dev/icons?i=nodejs,astro,html,css,ts,vercel)
 
 ## Tecnologías que también trabajo
 
 Estas forman parte de mi stack habitual como desarrollador, aunque no necesariamente están instaladas en este repositorio:
 
-![Tecnologias extra](https://skillicons.dev/icons?i=tailwind,react,nextjs,vue,js,sass,git)
+![Tecnologias extra](https://skillicons.dev/icons?i=git,js,react,nextjs,tailwind,sass,vue)
 
 
 ## Experiencia destacada
