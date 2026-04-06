@@ -28,11 +28,11 @@ const { href, name } = Astro.props
     text-transform: capitalize;
     font-family: 'Encode Sans', sans-serif;
     font-weight: 500;
-    letter-spacing: -0.1rem;
+    letter-spacing: var(--ls-tight);
     color: var(--primary-200);
     display: flex;
     align-items: center;
-    gap: 0.5em;
+    gap: var(--gap-sm);
   }
 
   .nav__link:is(:hover, :active, :focus) {
