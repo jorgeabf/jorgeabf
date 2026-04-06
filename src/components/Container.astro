@@ -7,6 +7,12 @@ import PortfolioIcon from './icons/Portfolio.astro'
 ---
 
 <div class='container'>
+  <a
+    href='#main-content'
+    class='skip-to-content'
+  >
+    Ir al contenido
+  </a>
   <Menu>
     <MenuItem
       name='Inicio'
@@ -42,5 +48,21 @@ import PortfolioIcon from './icons/Portfolio.astro'
       'header header menu'
       'main main main'
       'footer footer footer';
+  }
+
+  .skip-to-content {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    background-color: var(--secondary);
+    color: var(--white);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+
+  .skip-to-content:focus {
+    top: 0;
+    z-index: 100;
   }
 </style>

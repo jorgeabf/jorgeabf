@@ -16,7 +16,7 @@ export const proyectos: Proyecto[] = [
   {
     href: 'https://www.ajedrezeguidazu.com',
     imagen: eguidazuImg,
-    alt: 'Sitio Web del Club Ajedrez Egidazu',
+    alt: 'Sitio Web del Club Ajedrez Eguidazu',
     proyecto: 'Web Club de Ajedrez',
     fecha: 'Diciembre 2021'
   },

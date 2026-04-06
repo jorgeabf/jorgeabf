@@ -12,7 +12,7 @@ import Avatar from '../components/Avatar.astro'
       titulo='Frontend Developer'
       span='Jorge Arce Balluerca'
     />
-    <main>
+    <main id='main-content'>
       <Avatar />
       <TituloSeccion>Sobre mi...</TituloSeccion>
       <section>
@@ -31,6 +31,6 @@ import Avatar from '../components/Avatar.astro'
 
 <style>
   p {
-    max-width: 60ch;
+    max-width: var(--max-width-content);
   }
 </style>

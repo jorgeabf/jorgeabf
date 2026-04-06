@@ -18,7 +18,7 @@ const DATOS_TITULAR = {
       titulo=''
       span='Política de Privacidad'
     />
-    <main>
+    <main id='main-content'>
       <section class='legal'>
         <h2>1. Responsable del Tratamiento</h2>
         <p>
@@ -179,7 +179,7 @@ const DATOS_TITULAR = {
 
 <style>
   .legal {
-    max-width: 70ch;
+    max-width: var(--max-width-content);
   }
 
   .legal h2 {
@@ -189,12 +189,12 @@ const DATOS_TITULAR = {
   }
 
   .legal p {
-    line-height: 1.8;
+    line-height: var(--lh-relaxed);
     color: var(--text-color);
   }
 
   .legal ul {
-    line-height: 1.8;
+    line-height: var(--lh-relaxed);
     color: var(--text-color);
   }
 
@@ -208,16 +208,16 @@ const DATOS_TITULAR = {
   }
 
   .highlight {
-    background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
-    border-left: 4px solid #28a745;
+    background: var(--highlight-green-bg);
+    border-left: 4px solid var(--highlight-green-border);
     padding: 1em 1.5em;
     margin: 1.5em 0;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
   }
 
   .highlight p {
     margin: 0;
-    font-size: 1.1em;
+    font-size: var(--fs-1);
   }
 
   .updated {

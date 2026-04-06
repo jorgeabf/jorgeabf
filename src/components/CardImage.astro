@@ -20,7 +20,10 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
     class='card__img'
     src={imagen}
     alt={alt}
-    height={300}
+    width={imagen.width}
+    height={imagen.height}
+    loading='eager'
+    decoding='async'
   />
 
   <div class='card__content'>
@@ -46,21 +49,22 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
 
   .card__img {
     width: 100%;
-    object-fit: cover;
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    height: auto;
+    display: block;
+    transition: transform var(--transition-smooth);
   }
 
   .card__content {
     padding: 1em;
     border-top: var(--border);
-    font-size: 0.85em;
-    background-color: hsl(0, 0%, 100%);
+    font-size: var(--fs--1);
+    background-color: var(--white);
   }
 
   .card__titulo {
     margin: 0;
     font-weight: 500;
-    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: color var(--transition-slow);
   }
 
   .card__parrafo {
@@ -70,7 +74,7 @@ const { href, imagen, alt, proyecto, fecha } = Astro.props
   .card__span {
     margin-left: 0.25em;
     display: inline-block;
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform var(--transition-smooth);
   }
 
   .card:is(:hover, :focus-within) .card__img {

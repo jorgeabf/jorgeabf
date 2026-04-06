@@ -18,7 +18,7 @@ const DATOS_TITULAR = {
       titulo=''
       span='Aviso Legal'
     />
-    <main>
+    <main id='main-content'>
       <section class='legal'>
         <h2>1. Datos Identificativos</h2>
         <p>
@@ -133,7 +133,7 @@ const DATOS_TITULAR = {
 
 <style>
   .legal {
-    max-width: 70ch;
+    max-width: var(--max-width-content);
   }
 
   .legal h2 {
@@ -143,12 +143,12 @@ const DATOS_TITULAR = {
   }
 
   .legal p {
-    line-height: 1.8;
+    line-height: var(--lh-relaxed);
     color: var(--text-color);
   }
 
   .legal ul {
-    line-height: 1.8;
+    line-height: var(--lh-relaxed);
     color: var(--text-color);
   }
 

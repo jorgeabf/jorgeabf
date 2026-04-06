@@ -8,9 +8,21 @@ export interface Props {
   title: string
   showPrivacyBanner?: boolean
   privacyTheme?: 'green' | 'blue' | 'gray' | 'red'
+  canonicalUrl?: string
 }
 
-const { title, showPrivacyBanner = false, privacyTheme = 'gray' } = Astro.props
+const {
+  title,
+  showPrivacyBanner = false,
+  privacyTheme = 'gray',
+  canonicalUrl
+} = Astro.props
+
+const description =
+  'Sitio Web y Portfolio Personal de Jorge Arce Balluerca con mis proyectos de desarrollo web frontend.'
+const currentUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined
+const canonicalHref = canonicalUrl ?? currentUrl
+const ogImage = Astro.site ? new URL('/og-image.png', Astro.site).toString() : undefined
 ---
 
 <!doctype html>
@@ -23,12 +35,60 @@ const { title, showPrivacyBanner = false, privacyTheme = 'gray' } = Astro.props
     />
     <meta
       name='description'
-      content='Sitio Web y Porfolio Personal de Jorge Arce Balluerca con mis proyectos de desarrollo web frontend.'
+      content={description}
     />
     <meta
-      name='color'
+      name='theme-color'
       content='#765a56'
     />
+    {canonicalHref && (
+      <link
+        rel='canonical'
+        href={canonicalHref}
+      />
+    )}
+    <meta
+      property='og:title'
+      content={title}
+    />
+    <meta
+      property='og:description'
+      content={description}
+    />
+    {canonicalHref && (
+      <meta
+        property='og:url'
+        content={canonicalHref}
+      />
+    )}
+    {ogImage && (
+      <meta
+        property='og:image'
+        content={ogImage}
+      />
+    )}
+    <meta
+      property='og:type'
+      content='website'
+    />
+    <meta
+      name='twitter:card'
+      content='summary_large_image'
+    />
+    <meta
+      name='twitter:title'
+      content={title}
+    />
+    <meta
+      name='twitter:description'
+      content={description}
+    />
+    {ogImage && (
+      <meta
+        name='twitter:image'
+        content={ogImage}
+      />
+    )}
     <link
       rel='icon'
       type='image/x-icon'
@@ -74,12 +134,34 @@ const { title, showPrivacyBanner = false, privacyTheme = 'gray' } = Astro.props
         --secondary: hsl(var(--secondary-h), var(--secondary-s), 50%);
         --secondary-dark: hsl(var(--secondary-h), var(--secondary-s), 40%);
         --secondary-light: hsl(var(--secondary-h), var(--secondary-s), 60%);
+        --primary: var(--primary-500);
+        --white: #fff;
+        --highlight-green-bg: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+        --highlight-green-border: #28a745;
 
         --text-color: var(--primary-100);
         --text-color-light: var(--primary-300);
 
+        --ls-tight: -0.1rem;
+        --lh-relaxed: 1.8;
+
+        --transition-fast: 0.2s ease-in-out;
+        --transition-smooth: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+        --gap-sm: 0.5em;
+        --gap-md: 1em;
+
+        --radius-sm: 0.375rem;
+        --radius-md: 0.5em;
+        --radius-lg: 0.75rem;
+        --radius-full: 50%;
+
+        --fs-body-label: 0.9rem;
+        --max-width-content: 70ch;
+
         --border: 2px solid var(--primary-900);
-        --border-radius: 0.5em;
+        --border-radius: var(--radius-md);
       }
 
       *,
@@ -109,7 +191,7 @@ const { title, showPrivacyBanner = false, privacyTheme = 'gray' } = Astro.props
           'Helvetica Neue',
           sans-serif;
         font-size: var(--fs-1);
-        background-image: linear-gradient(0deg, #fff, var(--primary-925));
+        background-image: linear-gradient(0deg, var(--white), var(--primary-925));
         color: var(--text-color);
       }
 
@@ -129,7 +211,7 @@ const { title, showPrivacyBanner = false, privacyTheme = 'gray' } = Astro.props
         font-family: 'Encode Sans', sans-serif;
         font-weight: 700;
         margin-top: 0;
-        letter-spacing: -0.1rem;
+        letter-spacing: var(--ls-tight);
       }
 
       strong {
@@ -140,18 +222,21 @@ const { title, showPrivacyBanner = false, privacyTheme = 'gray' } = Astro.props
         color: var(--primary);
         outline: none;
         text-decoration: none;
-        transition: color 0.2s ease-in-out;
+        transition: color var(--transition-fast);
       }
 
-      a:is(:hover, :active, :focus) {
+      a:is(:hover, :active, :focus-visible) {
         color: var(--secondary);
+      }
+
+      a:focus {
+        outline: 2px solid var(--secondary);
+        outline-offset: 2px;
       }
 
       img {
         max-width: 100%;
         display: block;
-        color: rgb(64, 106, 191);
-        color: rgb(217, 68, 38);
       }
     </style>
     {showPrivacyBanner && <PrivacyBanner theme={privacyTheme} />}

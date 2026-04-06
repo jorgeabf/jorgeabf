@@ -11,8 +11,9 @@ const { className = '' } = Astro.props
 
 <aside class={className}>
   <a
-    href='mailto:aportuvas@outlook.es'
+    href='mailto:jorgeabf1@outlook.es'
     title='Icono de Email'
+    aria-label='Contactar por email'
     target='_blank'
     rel='noopener noreferrer'
   >
@@ -21,6 +22,7 @@ const { className = '' } = Astro.props
   <a
     href='https://github.com/jorgeabf'
     title='Icono de Github'
+    aria-label='Ver perfil de GitHub'
     target='_blank'
     rel='noopener noreferrer'
   >
@@ -29,6 +31,7 @@ const { className = '' } = Astro.props
   <a
     href='https://linkedin.com/in/jorge-arce-balluerca'
     title='Icono de Linkedin'
+    aria-label='Ver perfil de LinkedIn'
     target='_blank'
     rel='noopener noreferrer'
   >
@@ -41,7 +44,7 @@ const { className = '' } = Astro.props
     gap: 0.25em;
     position: absolute;
     top: 50%;
-    transform: translatey(-50%);
+    transform: translateY(-50%);
     right: 1em;
   }
   a {
