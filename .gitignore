@@ -22,3 +22,4 @@ pnpm-debug.log*
 dektop.ini
 ,astro
 dist/
+pnpm-lock.yaml
