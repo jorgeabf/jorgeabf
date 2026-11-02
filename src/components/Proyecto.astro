@@ -99,6 +99,9 @@ const externa = !tieneFicha(proyecto)
       padding: var(--relleno);
       margin-block: var(--margen);
       margin-inline: calc(-1 * var(--relleno));
+      /* Al llegar por su ancla (el «Volver» de la ficha), cabe la etiqueta encima:
+         el margen y su línea de 1,2rem */
+      scroll-margin-block-start: var(--espacio-5);
 
       &::before {
         content: '';

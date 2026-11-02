@@ -2,9 +2,34 @@
 import Layout from '../layouts/Layout.astro'
 import Contacto from '../components/Contacto.astro'
 import Proyecto from '../components/Proyecto.astro'
+import { GITHUB, LINKEDIN } from '../lib/contacto'
 import { getProyectos } from '../lib/proyectos'
 
 const proyectos = await getProyectos()
+
+// Para los buscadores: el nombre de la web, que Google enseña en los resultados, y quién la hace
+const web = new URL('/', Astro.site).href
+const datosEstructurados = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${web}#web`,
+      url: web,
+      name: 'Jorge Arce',
+      inLanguage: 'es',
+      publisher: { '@id': `${web}#persona` }
+    },
+    {
+      '@type': 'Person',
+      '@id': `${web}#persona`,
+      name: 'Jorge Arce',
+      url: web,
+      jobTitle: 'Desarrollador web',
+      sameAs: [GITHUB, LINKEDIN]
+    }
+  ]
+}
 ---
 
 <Layout
@@ -12,6 +37,12 @@ const proyectos = await getProyectos()
   description='Hago y mantengo webs de ajedrez y de formación sanitaria con Astro, TypeScript y CSS, y aplicaciones en Cloudflare.'
   cabecera={false}
 >
+  <script
+    slot='head'
+    type='application/ld+json'
+    set:html={JSON.stringify(datosEstructurados)}
+  />
+
   {/* El contacto, también aquí: el del final queda detrás de todos los proyectos */}
   <header class='presentacion'>
     <hgroup>

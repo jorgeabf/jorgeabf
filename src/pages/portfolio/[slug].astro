@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import { getImage, Image } from 'astro:assets'
 import { render } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import Prosa from '../../components/Prosa.astro'
@@ -32,11 +32,28 @@ const legible = (url: string) => {
 // La ficha mide 52rem (.ficha), y la página llega a ese ancho en 60em: 52rem + 4rem de hueco
 // a cada lado; por debajo, mide 100vw - 8rem, y en el móvil, 100vw - 3rem
 const sizes = '(min-width: 60em) 52em, (min-width: 48em) calc(100vw - 8em), calc(100vw - 3em)'
+
+// Al compartir la ficha, su captura: a los 1200×630 que piden las redes, recortada por abajo,
+// y en JPEG, que lo leen todas
+const imagenSocial = await getImage({
+  src: data.imagen,
+  width: 1200,
+  height: 630,
+  fit: 'cover',
+  position: 'top',
+  format: 'jpg'
+})
 ---
 
 <Layout
   title={`${data.nombre} | Jorge Arce`}
   description={data.resumen}
+  imagen={{
+    src: imagenSocial.src,
+    ancho: imagenSocial.attributes.width,
+    alto: imagenSocial.attributes.height,
+    alt: data.alt
+  }}
 >
   <article class='ficha'>
     <header class='ficha__cabecera'>
@@ -114,7 +131,8 @@ const sizes = '(min-width: 60em) 52em, (min-width: 48em) calc(100vw - 8em), calc
       <Content />
     </Prosa>
 
-    <p class='ficha__volver'><a href='/#proyectos'>Volver a los proyectos</a></p>
+    {/* A la fila de este proyecto, no al principio de la lista */}
+    <p class='ficha__volver'><a href={`/#${id}`}>Volver a los proyectos</a></p>
   </article>
 </Layout>
 
