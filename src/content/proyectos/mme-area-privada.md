@@ -17,6 +17,11 @@ stack:
   - Brevo
 inicio: '2022-11'
 acceso: privado
+peso:
+  kb: 66
+  peticiones: 7
+  js: 0
+  medido: '2026-11'
 imagen: ./mme-area-privada.webp
 alt: Pantalla de acceso del área privada, con el campo del email para recibir un código
 orden: 4

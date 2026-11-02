@@ -14,6 +14,11 @@ stack:
   - Google Sheets
 inicio: '2022-08'
 acceso: con-zona-privada
+peso:
+  kb: 158
+  peticiones: 8
+  js: 1
+  medido: '2026-11'
 imagen: ./eguidazu.webp
 alt: Portada del Club de Ajedrez Eguidazu, con un tablero de fondo
 orden: 3

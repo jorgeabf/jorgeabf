@@ -23,6 +23,16 @@ const proyectos = defineCollection({
       // Sólo si el repositorio es público
       repo: https.optional(),
       licencia: z.string().optional(),
+      // La portada de la web a 1280×720, con la caché vacía y sin desplazar:
+      // lo transferido y lo que es JavaScript, en KB, y el número de peticiones
+      peso: z
+        .object({
+          kb: z.number().int().positive(),
+          peticiones: z.number().int().positive(),
+          js: z.number().int().nonnegative(),
+          medido: mes
+        })
+        .optional(),
       imagen: image(),
       alt: z.string(),
       orden: z.number().int().positive(),
