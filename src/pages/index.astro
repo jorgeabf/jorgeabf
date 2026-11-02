@@ -1,36 +1,117 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Container from '../components/Container.astro'
-import Titulo from '../components/Titulo.astro'
-import TituloSeccion from '../components/TituloSeccion.astro'
-import Avatar from '../components/Avatar.astro'
+import Contacto from '../components/Contacto.astro'
+import Proyecto from '../components/Proyecto.astro'
+import { getProyectos } from '../lib/proyectos'
+
+const proyectos = await getProyectos()
 ---
 
-<Layout title='Jorge Arce Balluerca'>
-  <Container>
-    <Titulo
-      titulo='Frontend Developer'
-      span='Jorge Arce Balluerca'
-    />
-    <main id='main-content'>
-      <Avatar />
-      <TituloSeccion>Sobre mi...</TituloSeccion>
-      <section>
-        <p>
-          Autodidacta y gran apasionado del <strong>Desarrollo Web</strong>, he
-          creado sitios Web desde cero y mis puntos fuertes son la <strong
-            >Maquetación</strong
-          > adaptada a todo tipo de dispositivos, el <strong
-            >Desarrollo Frontend</strong
-          > y Optimización <strong>SEO</strong>.
-        </p>
-      </section>
-    </main>
-  </Container>
+<Layout
+  title='Jorge Arce, desarrollador web'
+  description='Hago y mantengo webs de ajedrez y de formación sanitaria con Astro, TypeScript y CSS, y aplicaciones en Cloudflare.'
+  cabecera={false}
+>
+  <header class='presentacion'>
+    <h1>Jorge Arce</h1>
+    <p class='cargo'>Desarrollador web</p>
+  </header>
+
+  <section
+    class='seccion'
+    aria-labelledby='titulo-sobre-mi'
+  >
+    <h2 id='titulo-sobre-mi'>Sobre mí</h2>
+    <p class='medida-lectura'>
+      Soy desarrollador web autodidacta. Desde 2022 hago y mantengo webs con
+      Astro: las de un club y una federación de ajedrez, las de dos másteres del
+      ámbito sanitario y, en 2026, también aplicaciones con base de datos sobre
+      Cloudflare. Me fijo sobre todo en la <strong>accesibilidad</strong>,
+      el <strong>rendimiento</strong> y el <strong>SEO&nbsp;técnico</strong>.
+    </p>
+  </section>
+
+  <section
+    class='seccion'
+    id='proyectos'
+    aria-labelledby='titulo-proyectos'
+  >
+    <h2 id='titulo-proyectos'>Proyectos</h2>
+    <ul
+      class='proyectos'
+      role='list'
+    >
+      {
+        proyectos.map((proyecto, i) => (
+          <Proyecto
+            proyecto={proyecto}
+            primero={i === 0}
+          />
+        ))
+      }
+    </ul>
+  </section>
+
+  <section
+    class='seccion'
+    aria-labelledby='titulo-contacto'
+  >
+    <h2 id='titulo-contacto'>Contacto</h2>
+    <Contacto />
+  </section>
 </Layout>
 
 <style>
-  p {
-    max-width: var(--max-width-content);
+  @layer componentes {
+    .presentacion {
+      padding-block: var(--espacio-6) var(--espacio-5);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-1);
+    }
+
+    h1 {
+      font-size: var(--letra-titulo);
+      letter-spacing: -0.01em;
+    }
+
+    .cargo {
+      color: var(--color-acento);
+      font-size: var(--letra-media);
+    }
+
+    .seccion {
+      padding-block: var(--espacio-5);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-4);
+    }
+
+    h2 {
+      font-size: var(--letra-grande);
+    }
+
+    /* Las palabras clave, resaltadas como en el inspector */
+    strong {
+      padding-inline: 0.15em;
+      border-radius: var(--radio-1);
+      background-color: color-mix(in oklch, var(--color-acento) 20%, transparent);
+      font-weight: 600;
+    }
+
+    .proyectos {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    @media (min-width: 48em) {
+      .presentacion {
+        padding-block-start: calc(var(--espacio-6) * 1.5);
+      }
+
+      h1 {
+        font-size: var(--letra-titulo-ancho);
+      }
+    }
   }
 </style>

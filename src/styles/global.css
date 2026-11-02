@@ -1,0 +1,115 @@
+/* Se repite en un <style is:inline> al principio del <head> de Layout.astro,
+   que va antes que cualquier hoja */
+@layer reset, base, componentes, utilidades;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  ul,
+  ol,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+    padding: 0;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  img {
+    height: auto;
+  }
+}
+
+@layer base {
+  /* Con barra de scroll clásica, el mismo ancho haya scroll o no: la columna centrada
+     no se mueve al pasar de una página larga a una corta */
+  html {
+    font-size: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+    font-size: var(--letra-base);
+    line-height: var(--interlineado);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    line-height: 1.15;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  a {
+    color: var(--color-enlace);
+    text-underline-offset: 0.2em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-foco);
+    outline-offset: 2px;
+  }
+
+  code {
+    font-family: var(--fuente-codigo);
+  }
+}
+
+/* No es una regla de estilo: fuera de las capas */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-group(*) {
+    animation-duration: var(--duracion-2);
+  }
+}
+
+@layer utilidades {
+  .visualmente-oculto {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .medida-lectura {
+    max-inline-size: var(--medida-lectura);
+  }
+}

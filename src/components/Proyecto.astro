@@ -1,0 +1,251 @@
+---
+import { Image } from 'astro:assets'
+import { enlace, listaStack, mesLargo, textoTipo, tieneFicha, type Proyecto } from '../lib/proyectos'
+
+interface Props {
+  proyecto: Proyecto
+  primero?: boolean
+}
+
+const { proyecto, primero = false } = Astro.props
+const { id, data } = proyecto
+
+// Media fila: (--medida-pagina de 72rem - 1.5rem de separación) / 2; por debajo de 80em,
+// la página mide 100vw - 8rem; en el móvil, la captura va a lo ancho
+const sizes = '(min-width: 80em) 35.25em, (min-width: 48em) calc(50vw - 4.75em), calc(100vw - 3em)'
+
+// Sin ficha, la fila lleva a la web del proyecto: lo dicen la flecha y un texto para el lector de pantalla
+const externa = !tieneFicha(proyecto)
+---
+
+<li
+  class='proyecto'
+  id={id}
+>
+  <div class='proyecto__texto'>
+    <h3>
+      <a href={enlace(proyecto)}>
+        {data.nombre}
+        {externa && <>&nbsp;<span class='proyecto__flecha' aria-hidden='true'>↗&#xFE0E;</span><span class='visualmente-oculto'>(web externa)</span></>}
+      </a>
+    </h3>
+    <p>{data.resumen}</p>
+    {
+      data.destacados.length > 0 && (
+        <ul class='proyecto__destacados'>
+          {data.destacados.map((destacado) => (
+            <li>{destacado}</li>
+          ))}
+        </ul>
+      )
+    }
+    <p class='proyecto__datos'>
+      {textoTipo(data)},{' '}
+      {
+        data.fin ? (
+          <>
+            de <time datetime={data.inicio}>{mesLargo(data.inicio)}</time> a{' '}
+            <time datetime={data.fin}>{mesLargo(data.fin)}</time>
+          </>
+        ) : (
+          <>
+            desde <time datetime={data.inicio}>{mesLargo(data.inicio)}</time>
+          </>
+        )
+      }
+    </p>
+    <p class='proyecto__stack'>
+      <span class='visualmente-oculto'>Hecho con </span>{listaStack(data.stack)}
+    </p>
+  </div>
+  <Image
+    class='proyecto__captura'
+    src={data.imagen}
+    alt={data.alt}
+    widths={[400, 600, 800, 1200]}
+    sizes={sizes}
+    loading={primero ? 'eager' : 'lazy'}
+    style={tieneFicha(proyecto) ? `view-transition-name: captura-${id}` : undefined}
+  />
+</li>
+
+<style>
+  /* La caja sin ratón: el scroll lleva --inspeccion de 0 a 1 y de vuelta a 0 (más abajo) */
+  @property --inspeccion {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+  }
+
+  @keyframes inspeccionar {
+    15%,
+    85% {
+      --inspeccion: 1;
+    }
+  }
+
+  @layer componentes {
+    /* La caja del inspector: margen con outline-offset, relleno con box-shadow inset
+       y contenido con ::before; la etiqueta, con ::after */
+    /* Relleno y margen caben en el hueco de la página (--espacio-4): el contorno no se corta */
+    .proyecto {
+      --relleno: var(--espacio-1);
+      --margen: var(--espacio-2);
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-3);
+      align-items: start;
+      padding: var(--relleno);
+      margin-block: var(--margen);
+      margin-inline: calc(-1 * var(--relleno));
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: var(--relleno);
+        border: 1px solid var(--marca-contenido);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &::after {
+        content: 'li#' attr(id) / '';
+        position: absolute;
+        inset-block-start: calc(-1 * var(--margen));
+        inset-inline-start: calc(-1 * var(--margen));
+        translate: 0 -100%;
+        padding-inline: var(--espacio-1);
+        border-radius: var(--radio-1) var(--radio-1) 0 0;
+        background-color: var(--color-texto);
+        color: var(--color-fondo);
+        font: 600 0.75rem / var(--interlineado) var(--fuente-codigo);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* El contorno, sólo aquí: uno transparente fijo saldría siempre con colores forzados */
+      &:is(:hover, :has(a:focus-visible)) {
+        outline: 1px dashed var(--marca-margen);
+        outline-offset: var(--margen);
+        box-shadow:
+          inset 0 0 0 1px var(--marca-relleno),
+          inset 0 0 0 var(--relleno) color-mix(in oklch, var(--marca-relleno) 14%, transparent);
+
+        &::before,
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    /* El fundido, sólo con ratón: sin él, la caja la lleva el scroll, y una transición
+       retrasaría la etiqueta y el borde, que heredan --inspeccion */
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .proyecto,
+      .proyecto::before,
+      .proyecto::after {
+        transition:
+          box-shadow var(--duracion-1),
+          opacity var(--duracion-1);
+      }
+    }
+
+    /* Sin ratón (móvil, tableta), la caja sale en la fila que cruza una línea al 60 % del alto
+       de la pantalla: una sola a la vez, y por debajo del centro para que también llegue la última.
+       Con colores forzados, no: el contorno transparente se pintaría siempre */
+    @media (hover: none) and (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+      @supports (animation-timeline: view()) {
+        /* Sin el atajo animation: Lightning CSS le mete animation-timeline al minificar,
+           y los navegadores rechazan esa declaración */
+        .proyecto {
+          animation-name: inspeccionar;
+          animation-timing-function: linear;
+          animation-timeline: view(block 60% 40%);
+          outline: 1px dashed color-mix(in oklch, var(--marca-margen) calc(var(--inspeccion) * 100%), transparent);
+          outline-offset: var(--margen);
+          box-shadow:
+            inset 0 0 0 1px color-mix(in oklch, var(--marca-relleno) calc(var(--inspeccion) * 100%), transparent),
+            inset 0 0 0 var(--relleno) color-mix(in oklch, var(--marca-relleno) calc(var(--inspeccion) * 14%), transparent);
+
+          &::before,
+          &::after {
+            opacity: var(--inspeccion);
+          }
+        }
+
+        /* Con el foco del teclado en una fila (una tableta con teclado), sólo esa lleva la caja */
+        :global(:root:has(.proyecto a:focus-visible)) .proyecto {
+          animation-name: none;
+        }
+      }
+    }
+
+    .proyecto__texto {
+      container-type: inline-size;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-1);
+    }
+
+    /* Con la letra muy grande, el título encoge antes que dejar sola la flecha: 8em es lo que
+       mide «Emergencia ↗» (7,4em), la cola más larga, con margen. El contenedor, .proyecto__texto */
+    h3 {
+      font-size: min(var(--letra-media), 100cqi / 8);
+    }
+
+    /* La fuente de los títulos no trae la flecha: la del sistema, y no la primera que encuentre
+       el navegador. El U+FE0E pide el dibujo de texto, no el emoji */
+    .proyecto__flecha {
+      font-family: var(--fuente-texto);
+    }
+
+    /* Toda la fila lleva al enlace del título. El z-index lo pone también sobre la captura, que
+       con view-transition-name forma su propio contexto de apilamiento y se quedaba encima */
+    h3 a::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .proyecto__destacados {
+      padding-inline-start: var(--sangria-lista);
+      list-style-type: disc;
+
+      & li::marker {
+        color: var(--color-acento);
+      }
+    }
+
+    .proyecto__datos {
+      color: var(--color-suave);
+    }
+
+    .proyecto__stack {
+      color: var(--color-suave);
+      font-family: var(--fuente-codigo);
+      font-size: var(--letra-pequena);
+    }
+
+    .proyecto__captura {
+      order: -1;
+      inline-size: 100%;
+      border: 1px solid var(--color-borde);
+      border-radius: var(--radio-1);
+    }
+
+    @media (min-width: 48em) {
+      .proyecto {
+        --relleno: var(--espacio-3);
+        --margen: var(--espacio-3);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--espacio-4);
+      }
+
+      .proyecto__captura {
+        order: 0;
+      }
+    }
+  }
+</style>

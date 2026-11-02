@@ -1,0 +1,53 @@
+---
+import Email from './Email.astro'
+import EmailIcon from './icons/EmailIcon.astro'
+import GithubIcon from './icons/GithubIcon.astro'
+import LinkedinIcon from './icons/LinkedinIcon.astro'
+import { EMAIL, GITHUB, LINKEDIN } from '../lib/contacto'
+---
+
+<ul
+  class='contacto'
+  role='list'
+>
+  <li>
+    {/* El email, en su propio span: Firefox hace del <wbr> otro ítem flex y abre un hueco */}
+    <a href={`mailto:${EMAIL}`}><EmailIcon /><span><Email /></span></a>
+  </li>
+  <li>
+    <a href={GITHUB}><GithubIcon />GitHub</a>
+  </li>
+  <li>
+    <a href={LINKEDIN}><LinkedinIcon />LinkedIn</a>
+  </li>
+</ul>
+
+<style>
+  @layer componentes {
+    .contacto {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--espacio-2) var(--espacio-4);
+    }
+
+    /* El texto parte de línea si no cabe; el icono no encoge */
+    li {
+      min-inline-size: 0;
+    }
+
+    /* «@jorgearce.dev» no tiene por dónde partirse: con la letra muy grande, por cualquier sitio */
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--espacio-1);
+      max-inline-size: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    a :global(svg) {
+      inline-size: 1.25em;
+      block-size: 1.25em;
+      flex: none;
+    }
+  }
+</style>

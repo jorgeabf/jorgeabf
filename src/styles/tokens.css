@@ -1,0 +1,60 @@
+:root {
+  color-scheme: light dark;
+
+  /* Primitivos */
+  --gris-98: oklch(98.5% 0.004 250);
+  --gris-94: oklch(94% 0.008 250);
+  --gris-76: oklch(76% 0.02 250);
+  --gris-60: oklch(60% 0.02 255);
+  --gris-46: oklch(46% 0.025 255);
+  --gris-23: oklch(23% 0.03 255);
+  --gris-19: oklch(19% 0.02 255);
+  --azul-80: oklch(80% 0.1 240);
+  --azul-62: oklch(62% 0.11 240);
+  --azul-47: oklch(47% 0.12 250);
+  --verde-58: oklch(58% 0.12 150);
+  --naranja-80: oklch(80% 0.14 65);
+  --naranja-63: oklch(63% 0.13 60);
+  --naranja-55: oklch(55% 0.15 45);
+
+  /* Semánticos (claro, oscuro) */
+  --color-fondo: light-dark(var(--gris-98), var(--gris-19));
+  --color-texto: light-dark(var(--gris-23), var(--gris-94));
+  --color-suave: light-dark(var(--gris-46), var(--gris-76));
+  --color-enlace: light-dark(var(--azul-47), var(--azul-80));
+  --color-acento: light-dark(var(--naranja-55), var(--naranja-80));
+  --color-foco: var(--color-acento);
+  --color-borde: var(--gris-60);
+
+  /* Marcas de la caja del inspector */
+  --marca-contenido: var(--azul-62);
+  --marca-relleno: var(--verde-58);
+  --marca-margen: var(--naranja-63);
+
+  /* Espaciado */
+  --espacio-1: 0.5rem;
+  --espacio-2: 0.75rem;
+  --espacio-3: 1rem;
+  --espacio-4: 1.5rem;
+  --espacio-5: 2.5rem;
+  --espacio-6: 4rem;
+
+  /* Letra (--fuente-titulos la define la API de fuentes de Astro) */
+  --fuente-texto: system-ui, sans-serif;
+  --fuente-codigo: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --letra-pequena: 0.875rem;
+  --letra-base: 1rem;
+  --letra-media: 1.25rem;
+  --letra-grande: 1.75rem;
+  --letra-titulo: 2.5rem;
+  --letra-titulo-ancho: 4rem;
+  --interlineado: 1.6;
+  --sangria-lista: 1.25em;
+
+  --radio-1: 0.25rem;
+  --radio-2: 0.5rem;
+  --duracion-1: 150ms;
+  --duracion-2: 300ms;
+  --medida-lectura: 65ch;
+  --medida-pagina: 72rem;
+}
