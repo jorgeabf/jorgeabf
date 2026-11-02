@@ -19,6 +19,11 @@ inicio: '2026-10'
 acceso: publico
 repo: https://github.com/jorgeabf/maplechess
 licencia: GPL-3.0-or-later
+peso:
+  kb: 36
+  peticiones: 6
+  js: 0
+  medido: '2026-11'
 imagen: ./maplechess.webp
 alt: Portada de MapleChess, con el buscador de rivales y los últimos torneos con partidas
 orden: 1

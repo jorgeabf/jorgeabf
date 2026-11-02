@@ -6,6 +6,11 @@ import sitemap from '@astrojs/sitemap'
 export default defineConfig({
   site: 'https://jorgearce.dev',
   integrations: [sitemap()],
+  // Un puerto propio para dev y preview: el 4321 de Astro lo usan también otras webs.
+  // Los servidores de Claude (.claude/launch.json) van aparte, con --port
+  server: {
+    port: 9493
+  },
   // Todo el CSS en línea: por defecto, una hoja de más de 4 KB sale aparte y bloquea el pintado
   build: {
     inlineStylesheets: 'always'

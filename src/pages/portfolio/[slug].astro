@@ -20,6 +20,7 @@ interface Props {
 
 const { proyecto } = Astro.props
 const { id, data } = proyecto
+const { peso } = data
 const { Content } = await render(proyecto)
 
 // https://www.ejemplo.com/ → ejemplo.com; https://github.com/a/b → github.com/a/b
@@ -91,6 +92,18 @@ const sizes = '(min-width: 60em) 52em, (min-width: 48em) calc(100vw - 8em), calc
             <dd>
               <a href={data.repo}>{legible(data.repo)}</a>
               {data.licencia && <>, con licencia {data.licencia}</>}
+            </dd>
+          </div>
+        )
+      }
+      {
+        peso && (
+          <div>
+            <dt>Peso de la portada</dt>
+            <dd>
+              {peso.kb}&nbsp;KB en {peso.peticiones} peticiones,{' '}
+              {peso.js ? <>{peso.js}&nbsp;KB de JavaScript</> : 'sin JavaScript'}{' '}
+              (<time datetime={peso.medido}>{mesLargo(peso.medido)}</time>)
             </dd>
           </div>
         )

@@ -95,6 +95,13 @@
     outline-offset: 2px;
   }
 
+  /* El azul del contenido de la caja del inspector, aclarado u oscurecido con el fondo.
+     Todo lo seleccionado, con el color del texto: los enlaces o el acento no llegarían a 4,5:1 */
+  ::selection {
+    background-color: color-mix(in oklch, var(--marca-contenido) 50%, var(--color-fondo));
+    color: var(--color-texto);
+  }
+
   code {
     font-family: var(--fuente-codigo);
   }

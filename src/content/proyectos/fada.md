@@ -15,6 +15,11 @@ stack:
   - Netlify Forms
 inicio: '2025-11'
 acceso: publico
+peso:
+  kb: 158
+  peticiones: 20
+  js: 8
+  medido: '2026-11'
 imagen: ./fada.webp
 alt: Portada de la Federación Alavesa de Ajedrez, con los avisos de emparejamientos e inscripciones
 orden: 2
