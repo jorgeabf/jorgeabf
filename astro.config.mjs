@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import robotsTxt from 'astro-robots-txt';
 
 import sitemap from "@astrojs/sitemap";
 
@@ -7,5 +6,5 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: 'https://jorgearce.dev',
   prefetch: true,
-  integrations: [robotsTxt(), sitemap()]
+  integrations: [sitemap()]
 });
