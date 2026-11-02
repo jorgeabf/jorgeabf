@@ -67,6 +67,18 @@
     overflow-wrap: break-word;
   }
 
+  /* El tamaño, en una variable: la ficha le pone un tope con unidades de contenedor */
+  h1 {
+    --letra-h1: var(--letra-grande);
+    font-size: var(--letra-h1);
+  }
+
+  @media (min-width: 48em) {
+    h1 {
+      --letra-h1: var(--letra-titulo);
+    }
+  }
+
   p,
   li {
     text-wrap: pretty;

@@ -12,16 +12,12 @@ const proyectos = await getProyectos()
   description='Hago y mantengo webs de ajedrez y de formación sanitaria con Astro, TypeScript y CSS, y aplicaciones en Cloudflare.'
   cabecera={false}
 >
+  {/* El contacto, también aquí: el del final queda detrás de todos los proyectos */}
   <header class='presentacion'>
-    <h1>Jorge Arce</h1>
-    <p class='cargo'>Desarrollador web</p>
-  </header>
-
-  <section
-    class='seccion'
-    aria-labelledby='titulo-sobre-mi'
-  >
-    <h2 id='titulo-sobre-mi'>Sobre mí</h2>
+    <hgroup>
+      <h1>Jorge Arce</h1>
+      <p class='cargo'>Desarrollador web</p>
+    </hgroup>
     <p class='medida-lectura'>
       Soy desarrollador web autodidacta. Desde 2022 hago y mantengo webs con
       Astro: las de un club y una federación de ajedrez, las de dos másteres del
@@ -29,7 +25,8 @@ const proyectos = await getProyectos()
       Cloudflare. Me fijo sobre todo en la <strong>accesibilidad</strong>,
       el <strong>rendimiento</strong> y el <strong>SEO&nbsp;técnico</strong>.
     </p>
-  </section>
+    <Contacto />
+  </header>
 
   <section
     class='seccion'
@@ -63,8 +60,15 @@ const proyectos = await getProyectos()
 
 <style>
   @layer componentes {
+    /* El cargo, pegado al nombre; la entradilla y el contacto, más separados */
     .presentacion {
       padding-block: var(--espacio-6) var(--espacio-5);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-4);
+    }
+
+    hgroup {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
       gap: var(--espacio-1);

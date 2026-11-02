@@ -8,11 +8,17 @@
       padding-block: var(--espacio-4);
     }
 
+    /* La marca de la web, no un enlace dentro de un texto: subrayada sólo al pasar el ratón */
     a {
       color: var(--color-texto);
       font-family: var(--fuente-titulos);
       font-size: var(--letra-media);
       font-weight: 700;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 </style>

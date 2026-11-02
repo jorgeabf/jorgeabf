@@ -27,6 +27,10 @@ const legible = (url: string) => {
   const { host, pathname } = new URL(url)
   return host.replace(/^www\./, '') + pathname.replace(/\/$/, '')
 }
+
+// La ficha mide 52rem (.ficha), y la página llega a ese ancho en 60em: 52rem + 4rem de hueco
+// a cada lado; por debajo, mide 100vw - 8rem, y en el móvil, 100vw - 3rem
+const sizes = '(min-width: 60em) 52em, (min-width: 48em) calc(100vw - 8em), calc(100vw - 3em)'
 ---
 
 <Layout
@@ -44,7 +48,7 @@ const legible = (url: string) => {
       src={data.imagen}
       alt={data.alt}
       widths={[640, 960, 1280, 1600]}
-      sizes='(min-width: 60em) 52em, (min-width: 48em) calc(100vw - 8em), calc(100vw - 3em)'
+      sizes={sizes}
       loading='eager'
       style={`view-transition-name: captura-${id}`}
     />
@@ -103,6 +107,7 @@ const legible = (url: string) => {
 
 <style>
   @layer componentes {
+    /* El ancho va con el sizes de la captura (en el frontmatter): si cambia uno, se rehace el otro */
     .ficha {
       max-inline-size: 52rem;
       padding-block: var(--espacio-4) var(--espacio-5);
@@ -119,10 +124,10 @@ const legible = (url: string) => {
     }
 
     /* Con la letra grande, la marca del título baja de tamaño antes que partirse:
-       7em es lo que mide «Autoescuela», la palabra más larga de los nombres */
+       7em es lo que mide «Autoescuela», la palabra más larga de los nombres.
+       --letra-h1, el tamaño de siempre, sale de la base */
     h1 {
-      --letra: var(--letra-grande);
-      font-size: min(var(--letra), 100cqi / 7);
+      font-size: min(var(--letra-h1), 100cqi / 7);
     }
 
     .ficha__resumen {
@@ -158,10 +163,6 @@ const legible = (url: string) => {
     }
 
     @media (min-width: 48em) {
-      h1 {
-        --letra: var(--letra-titulo);
-      }
-
       .ficha__datos > div {
         grid-template-columns: 8rem minmax(0, 1fr);
         gap: var(--espacio-3);
