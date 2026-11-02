@@ -1,0 +1,28 @@
+<div class='prosa medida-lectura'>
+  <slot />
+</div>
+
+<style>
+  @layer componentes {
+    /* El contenido llega del Markdown o de la página: sin el atributo de ámbito */
+    .prosa {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-3);
+    }
+
+    .prosa :global(h2) {
+      margin-block-start: var(--espacio-4);
+      font-size: var(--letra-media);
+    }
+
+    .prosa :global(ul) {
+      padding-inline-start: var(--sangria-lista);
+    }
+
+    .prosa :global(code) {
+      font-size: 0.9em;
+      overflow-wrap: anywhere;
+    }
+  }
+</style>

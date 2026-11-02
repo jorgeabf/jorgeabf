@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/portfolio", "destination": "/#proyectos", "permanent": true },
+    { "source": "/portfolio/", "destination": "/#proyectos", "permanent": true },
+    { "source": "/politica-de-privacidad", "destination": "/aviso-legal/", "permanent": true },
+    { "source": "/politica-de-privacidad/", "destination": "/aviso-legal/", "permanent": true }
+  ]
+}

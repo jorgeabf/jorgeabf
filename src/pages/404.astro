@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title='Esta página no existe | Jorge Arce'
+  description='La página que buscas no existe en jorgearce.dev.'
+  canonica={false}
+>
+  <div class='no-existe'>
+    <h1>Esta página no existe</h1>
+    <p><a href='/'>Volver al inicio</a></p>
+  </div>
+</Layout>
+
+<style>
+  @layer componentes {
+    .no-existe {
+      padding-block: var(--espacio-5);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-4);
+    }
+
+    h1 {
+      font-size: var(--letra-grande);
+    }
+
+    @media (min-width: 48em) {
+      h1 {
+        font-size: var(--letra-titulo);
+      }
+    }
+  }
+</style>

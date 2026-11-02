@@ -1,0 +1,172 @@
+---
+import { Image } from 'astro:assets'
+import { render } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import Prosa from '../../components/Prosa.astro'
+import { getProyectos, listaStack, mesLargo, textoAcceso, tieneFicha, type Proyecto } from '../../lib/proyectos'
+
+// Sólo los proyectos con cuerpo tienen ficha
+export async function getStaticPaths() {
+  const proyectos = await getProyectos()
+  return proyectos.filter(tieneFicha).map((proyecto) => ({
+    params: { slug: proyecto.id },
+    props: { proyecto }
+  }))
+}
+
+interface Props {
+  proyecto: Proyecto
+}
+
+const { proyecto } = Astro.props
+const { id, data } = proyecto
+const { Content } = await render(proyecto)
+
+// https://www.ejemplo.com/ → ejemplo.com; https://github.com/a/b → github.com/a/b
+const legible = (url: string) => {
+  const { host, pathname } = new URL(url)
+  return host.replace(/^www\./, '') + pathname.replace(/\/$/, '')
+}
+---
+
+<Layout
+  title={`${data.nombre} | Jorge Arce`}
+  description={data.resumen}
+>
+  <article class='ficha'>
+    <header class='ficha__cabecera'>
+      <h1>{data.nombre}</h1>
+      <p class='ficha__resumen medida-lectura'>{data.resumen}</p>
+    </header>
+
+    <Image
+      class='ficha__captura'
+      src={data.imagen}
+      alt={data.alt}
+      widths={[640, 960, 1280, 1600]}
+      sizes='(min-width: 60em) 52em, (min-width: 48em) calc(100vw - 8em), calc(100vw - 3em)'
+      loading='eager'
+      style={`view-transition-name: captura-${id}`}
+    />
+
+    <dl class='ficha__datos'>
+      <div>
+        <dt>Tipo</dt>
+        <dd>{data.tipo === 'aplicacion' ? 'Aplicación' : 'Sitio'}</dd>
+      </div>
+      <div>
+        <dt>Acceso</dt>
+        <dd>{textoAcceso[data.acceso]}</dd>
+      </div>
+      <div>
+        <dt>{data.fin ? 'Fechas' : 'Desde'}</dt>
+        <dd>
+          <time datetime={data.inicio}>{mesLargo(data.inicio)}</time>
+          {
+            data.fin && (
+              <>
+                {' '}
+                a <time datetime={data.fin}>{mesLargo(data.fin)}</time>
+              </>
+            )
+          }
+        </dd>
+      </div>
+      <div>
+        <dt>Hecho con</dt>
+        <dd>{listaStack(data.stack)}</dd>
+      </div>
+      <div>
+        <dt>Web</dt>
+        <dd><a href={data.url}>{legible(data.url)}</a></dd>
+      </div>
+      {
+        data.repo && (
+          <div>
+            <dt>Código</dt>
+            <dd>
+              <a href={data.repo}>{legible(data.repo)}</a>
+              {data.licencia && <>, con licencia {data.licencia}</>}
+            </dd>
+          </div>
+        )
+      }
+    </dl>
+
+    <Prosa>
+      <Content />
+    </Prosa>
+
+    <p class='ficha__volver'><a href='/#proyectos'>Volver a los proyectos</a></p>
+  </article>
+</Layout>
+
+<style>
+  @layer componentes {
+    .ficha {
+      max-inline-size: 52rem;
+      padding-block: var(--espacio-4) var(--espacio-5);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-5);
+    }
+
+    .ficha__cabecera {
+      container-type: inline-size;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-2);
+    }
+
+    /* Con la letra grande, la marca del título baja de tamaño antes que partirse:
+       7em es lo que mide «Autoescuela», la palabra más larga de los nombres */
+    h1 {
+      --letra: var(--letra-grande);
+      font-size: min(var(--letra), 100cqi / 7);
+    }
+
+    .ficha__resumen {
+      color: var(--color-suave);
+      font-size: var(--letra-media);
+    }
+
+    .ficha__captura {
+      inline-size: 100%;
+      border: 1px solid var(--color-borde);
+      border-radius: var(--radio-2);
+    }
+
+    .ficha__datos {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--espacio-2);
+
+      & > div {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    dt {
+      color: var(--color-suave);
+      font-size: var(--letra-pequena);
+    }
+
+    /* Las direcciones no tienen por dónde partirse */
+    dd {
+      overflow-wrap: break-word;
+    }
+
+    @media (min-width: 48em) {
+      h1 {
+        --letra: var(--letra-titulo);
+      }
+
+      .ficha__datos > div {
+        grid-template-columns: 8rem minmax(0, 1fr);
+        gap: var(--espacio-3);
+        align-items: baseline;
+      }
+    }
+  }
+</style>

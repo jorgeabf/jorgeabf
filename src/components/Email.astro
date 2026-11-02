@@ -1,0 +1,8 @@
+---
+import { EMAIL } from '../lib/contacto'
+
+// Un email no tiene por dónde partirse: el <wbr> deja cortar antes de la @
+const [usuario, dominio] = EMAIL.split('@')
+---
+
+{usuario}<wbr />@{dominio}
