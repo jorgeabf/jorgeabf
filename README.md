@@ -4,10 +4,10 @@ Frontend Developer en Vitoria. Construyo experiencias web enfocadas en rendimien
 
 Portfolio: [jorgearce.dev](https://jorgearce.dev)
 
-![Astro](https://img.shields.io/static/v1?label=Astro&message=6.1.3&color=BC52EE&style=for-the-badge&logo=astro&logoColor=white)
-![TypeScript](https://img.shields.io/static/v1?label=TypeScript&message=5.8.3&color=3178C6&style=for-the-badge&logo=typescript&logoColor=white)
-![Node.js](https://img.shields.io/static/v1?label=Node.js&message=24.14.1&color=5FA04E&style=for-the-badge&logo=nodedotjs&logoColor=white)
-![pnpm](https://img.shields.io/static/v1?label=pnpm&message=10.33.0&color=F69220&style=for-the-badge&logo=pnpm&logoColor=white)
+![Astro](https://img.shields.io/static/v1?label=Astro&message=7.4.4&color=BC52EE&style=for-the-badge&logo=astro&logoColor=white)
+![TypeScript](https://img.shields.io/static/v1?label=TypeScript&message=6.0.3&color=3178C6&style=for-the-badge&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/static/v1?label=Node.js&message=24.x&color=5FA04E&style=for-the-badge&logo=nodedotjs&logoColor=white)
+![pnpm](https://img.shields.io/static/v1?label=pnpm&message=11.28.10&color=F69220&style=for-the-badge&logo=pnpm&logoColor=white)
 ![Vercel](https://img.shields.io/static/v1?label=Vercel&message=Deploy&color=000000&style=for-the-badge&logo=vercel&logoColor=white)
 
 ## Perfil técnico
